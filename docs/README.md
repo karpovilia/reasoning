@@ -64,6 +64,14 @@
 
 Дата составления: 2026-08-13, вечер. Статья: файл budget_eacl.tex в Overleaf-проекте 6a601096a28b0d84b50797ee, английская версия budget-статьи, шаблон EACL 2023. Последний коммит по файлу: b7c32f0 от…
 
+### report_2026_08_03_tokens_RU.pdf
+
+Дата: дата не указана. Файл: docs/reports/report_2026_08_03_tokens_RU.pdf
+
+### report_2026_08_03_tokens_RU.tex
+
+Дата: дата не указана. Файл: docs/reports/report_2026_08_03_tokens_RU.tex
+
 ### Отчёт о работе с 14 по 17 августа 2026 года
 
 Дата: 2026-08-17. Файл: docs/reports/report_2026_08_17_delta_RU.md
