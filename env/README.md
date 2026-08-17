@@ -96,7 +96,7 @@ module load Python/Anaconda_v02.2024 и conda activate vllm_qwen.
 Полная запись прогона с номерами задач и временами — в
 experiments/infra/retrieval_runs_2026_08_16/PROVENANCE.md.
 
-### Обучение низкоранговых адаптеров на боксе с картами
+### Обучение низкоранговых адаптеров LoRA на боксе с картами
 
 Бокс user@192.168.2.43, имя tesla. Окружение
 user@192.168.2.43:/home/user/ki_sft_judge/.venv, снято 17 августа 2026 года в

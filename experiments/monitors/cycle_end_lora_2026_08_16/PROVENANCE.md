@@ -28,7 +28,7 @@ experiments/monitors/cycle_end_lora_2026_08_16/PREREGISTRATION.md
 | рабочий каталог на боксе | user@192.168.2.43:/home/user/ki_cycle_end |
 
 Полная справка по окружению — в
-env/README.md, раздел про обучение низкоранговых
+env/README.md, раздел про обучение низкоранговых адаптеров LoRA
 адаптеров на боксе с картами.
 
 ## Веса и код
