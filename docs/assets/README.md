@@ -1,24 +1,24 @@
 # Исходники вёрстки и рисунки
 
-Каталог держит то, из чего собран отчёт docs/reports/report_2026_08_14_tokens_RU.md:
+Каталог держит то, из чего собран отчёт docs/reports/report_2026_08_13_tokens_RU.md:
 исходник вёрстки, его сборку, рисунки и библиографию.
 
 Сборка идёт из того, что лежит рядом, без обращения к другим каталогам:
 
 ```
 cd docs/assets
-pdflatex report_2026_08_14_tokens_RU
-bibtex   report_2026_08_14_tokens_RU
-pdflatex report_2026_08_14_tokens_RU
-pdflatex report_2026_08_14_tokens_RU
+pdflatex report_2026_08_13_tokens_RU
+bibtex   report_2026_08_13_tokens_RU
+pdflatex report_2026_08_13_tokens_RU
+pdflatex report_2026_08_13_tokens_RU
 ```
 
 Что здесь лежит:
 
-- report_2026_08_14_tokens_RU.tex — исходник вёрстки, ревизия 7b9259e проекта
-  Overleaf от 14 августа 2026 года. Файл побайтово равен той ревизии, поэтому
+- report_2026_08_13_tokens_RU.tex — исходник вёрстки, ревизия 7b9259e проекта
+  Overleaf. Файл побайтово равен той ревизии, поэтому
   его не правят: любая правка рвёт сверку происхождения по хэшу.
-- report_2026_08_14_tokens_RU.pdf — сборка этого исходника, хранится через
+- report_2026_08_13_tokens_RU.pdf — сборка этого исходника, хранится через
   git lfs.
 - references.bib — библиография, оттуда же.
 - acl_natbib.bst — стиль библиографии. Файл общий с каталогами наших статей

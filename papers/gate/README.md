@@ -122,7 +122,7 @@ docs/findings/2026_08_17_online_prefix_overcount_RU.md.
   рассуждения.
 - docs/findings/2026_08_13_teacher_not_smarter_but_terser_RU.md — учитель не
   умнее ученика, он лаконичнее.
-- docs/reports/report_2026_08_14_tokens_RU.md — отчёт линии: прогноз работает,
+- docs/reports/report_2026_08_13_tokens_RU.md — отчёт линии: прогноз работает,
   управление через прогноз почти нет.
 
 ## Каноны, обязательные для этой линии
