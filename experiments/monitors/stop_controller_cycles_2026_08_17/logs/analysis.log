@@ -1,0 +1,33 @@
+1.4 разобран для M_gru_heads, секунд 51.0
+1.4 разобран для M0_mlp_heads, секунд 101.1
+1.4 разобран для B2_event_gbr, секунд 151.0
+1.4 разобран для B1_time_linear, секунд 200.6
+расписания разобраны для M_gru_heads, секунд 223.2
+расписания разобраны для M0_mlp_heads, секунд 245.5
+расписания разобраны для B2_event_gbr, секунд 268.1
+расписания разобраны для B1_time_linear, секунд 289.8
+графики записаны, секунд 290.7
+Traceback (most recent call last):
+  File "/home/user/ki_cycles/src/analysis_events.py", line 337, in <module>
+    main()
+  File "/home/user/ki_cycles/src/analysis_events.py", line 332, in main
+    print(json.dumps({k: res["модели"][k]["остаток"] for k in res["модели"]},
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/user/anaconda3/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/home/user/anaconda3/lib/python3.12/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/home/user/anaconda3/lib/python3.12/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/user/anaconda3/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/user/anaconda3/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/home/user/anaconda3/lib/python3.12/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/user/anaconda3/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type float32 is not JSON serializable

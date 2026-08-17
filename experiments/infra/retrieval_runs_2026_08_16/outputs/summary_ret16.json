@@ -1,0 +1,160 @@
+[
+ {
+  "file": "final16/gpt-oss-20b/hotpotqa/seed101/hotpotqa_gpt-oss-20b.jsonl",
+  "traces": 500,
+  "answered": 433,
+  "answered_share": 0.866,
+  "tool_calls": {
+   "mean": 4.73,
+   "median": 4.0,
+   "max": 10
+  },
+  "searches": {
+   "mean": 3.23,
+   "median": 2.0,
+   "max": 10
+  },
+  "page_fetches": {
+   "mean": 1.49,
+   "median": 1.0,
+   "max": 8
+  },
+  "model_turns": {
+   "mean": 5.62,
+   "median": 5.0,
+   "max": 12
+  },
+  "completion_tokens": {
+   "mean": 579.09,
+   "median": 430.5,
+   "max": 3880
+  },
+  "answer_chars": {
+   "mean": 19.49,
+   "median": 12.0,
+   "max": 217
+  },
+  "failures": {
+   "endpoint_http_500": 61,
+   "answer_extraction_failed": 6
+  }
+ },
+ {
+  "file": "final16/gpt-oss-20b/musique/seed101/musique_gpt-oss-20b.jsonl",
+  "traces": 500,
+  "answered": 428,
+  "answered_share": 0.856,
+  "tool_calls": {
+   "mean": 5.64,
+   "median": 5.0,
+   "max": 10
+  },
+  "searches": {
+   "mean": 3.93,
+   "median": 3.0,
+   "max": 10
+  },
+  "page_fetches": {
+   "mean": 1.69,
+   "median": 1.5,
+   "max": 6
+  },
+  "model_turns": {
+   "mean": 6.52,
+   "median": 6.0,
+   "max": 12
+  },
+  "completion_tokens": {
+   "mean": 715.56,
+   "median": 642.0,
+   "max": 2974
+  },
+  "answer_chars": {
+   "mean": 27.25,
+   "median": 14.0,
+   "max": 352
+  },
+  "failures": {
+   "endpoint_http_500": 61,
+   "answer_extraction_failed": 11
+  }
+ },
+ {
+  "file": "final16/qwen3.6-35b-a3b-fp8/hotpotqa/seed101/hotpotqa_Qwen3.6-35B-A3B-FP8.jsonl",
+  "traces": 500,
+  "answered": 494,
+  "answered_share": 0.988,
+  "tool_calls": {
+   "mean": 5.81,
+   "median": 5.0,
+   "max": 172
+  },
+  "searches": {
+   "mean": 3.96,
+   "median": 2.0,
+   "max": 172
+  },
+  "page_fetches": {
+   "mean": 1.62,
+   "median": 1.0,
+   "max": 8
+  },
+  "model_turns": {
+   "mean": 5.79,
+   "median": 5.0,
+   "max": 11
+  },
+  "completion_tokens": {
+   "mean": 1331.47,
+   "median": 771.5,
+   "max": 18503
+  },
+  "answer_chars": {
+   "mean": 16.43,
+   "median": 12.0,
+   "max": 374
+  },
+  "failures": {
+   "endpoint_http_400": 6
+  }
+ },
+ {
+  "file": "final16/qwen3.6-35b-a3b-fp8/musique/seed101/musique_Qwen3.6-35B-A3B-FP8.jsonl",
+  "traces": 500,
+  "answered": 487,
+  "answered_share": 0.974,
+  "tool_calls": {
+   "mean": 7.18,
+   "median": 6.0,
+   "max": 175
+  },
+  "searches": {
+   "mean": 5.1,
+   "median": 3.0,
+   "max": 174
+  },
+  "page_fetches": {
+   "mean": 1.72,
+   "median": 1.0,
+   "max": 8
+  },
+  "model_turns": {
+   "mean": 6.78,
+   "median": 6.0,
+   "max": 11
+  },
+  "completion_tokens": {
+   "mean": 1570.23,
+   "median": 1016.5,
+   "max": 14000
+  },
+  "answer_chars": {
+   "mean": 28.82,
+   "median": 13.0,
+   "max": 675
+  },
+  "failures": {
+   "endpoint_http_400": 13
+  }
+ }
+]

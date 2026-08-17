@@ -1,0 +1,8 @@
+CKPT {"checkpoint": "ckpt_000350", "examples": 350, "step": 87, "val_loss": 1.1285, "train_loss_recent": 0.3875, "elapsed_hours": 0.175, "gpu_hours": 0.351, "at": "2026-08-16T21:43:05+0000"}
+CKPT {"checkpoint": "ckpt_000700", "examples": 700, "step": 175, "val_loss": 0.9313, "train_loss_recent": 0.6304, "elapsed_hours": 0.35, "gpu_hours": 0.699, "at": "2026-08-16T21:53:32+0000"}
+CKPT {"checkpoint": "ckpt_001050", "examples": 1050, "step": 262, "val_loss": 0.858, "train_loss_recent": 0.0787, "elapsed_hours": 0.525, "gpu_hours": 1.05, "at": "2026-08-16T22:04:04+0000"}
+CKPT {"checkpoint": "ckpt_001400", "examples": 1400, "step": 350, "val_loss": 0.9586, "train_loss_recent": 0.4368, "elapsed_hours": 0.7, "gpu_hours": 1.401, "at": "2026-08-16T22:14:36+0000"}
+CKPT {"checkpoint": "ckpt_001750", "examples": 1750, "step": 437, "val_loss": 0.8519, "train_loss_recent": 0.7462, "elapsed_hours": 0.876, "gpu_hours": 1.753, "at": "2026-08-16T22:25:09+0000"}
+CKPT {"checkpoint": "ckpt_002100", "examples": 2100, "step": 525, "val_loss": 0.8016, "train_loss_recent": 0.2042, "elapsed_hours": 1.05, "gpu_hours": 2.101, "at": "2026-08-16T22:35:35+0000"}
+CKPT {"checkpoint": "ckpt_002450", "examples": 2450, "step": 612, "val_loss": 0.809, "train_loss_recent": 0.4895, "elapsed_hours": 1.226, "gpu_hours": 2.452, "at": "2026-08-16T22:46:08+0000"}
+CKPT {"checkpoint": "ckpt_002800", "examples": 2800, "step": 700, "val_loss": 0.8006, "train_loss_recent": 0.0, "elapsed_hours": 1.402, "gpu_hours": 2.804, "at": "2026-08-16T22:56:41+0000"}

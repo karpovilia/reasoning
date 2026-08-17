@@ -1,0 +1,109 @@
+{
+ "n_train": 13770,
+ "n_test": 6118,
+ "base_rate_train": 0.6762527233115468,
+ "base_rate_test": 0.6559333115397189,
+ "bars": {
+  "B0_const": {
+   "M1_spearman": 0.09679935671932167,
+   "M2_mae_log1p": 1.147225137266041,
+   "M3_auc": 0.5,
+   "M4_winkler80": 1655.7514592494163,
+   "coverage80": 0.7763975155279503,
+   "median_width": 600.1723496946331,
+   "n": 6118,
+   "train_median": 143.1553508053508
+  },
+  "B1_free_point": {
+   "M1_spearman": 0.2819232112740029,
+   "M2_mae_log1p": 1.0788502208602508,
+   "M3_auc": 0.632886527337223,
+   "M4_winkler80": 1580.0581919700912,
+   "coverage80": 0.7700228832951945,
+   "median_width": 573.9267900171575,
+   "n": 6118
+  },
+  "B2_event_gbr": {
+   "M1_spearman": 0.6575899565182555,
+   "M2_mae_log1p": 0.8313795655938335,
+   "M3_auc": 0.8272618739689832,
+   "M4_winkler80": 1239.121272434908,
+   "coverage80": 0.717391304347826,
+   "median_width": 357.30341118341767,
+   "n": 6118
+  },
+  "B3_event_gbr_hawkes": {
+   "M1_spearman": 0.6608276014087862,
+   "M2_mae_log1p": 0.8296382657499911,
+   "M3_auc": 0.8288793606053485,
+   "M4_winkler80": 1242.9669834895428,
+   "coverage80": 0.7169009480222295,
+   "median_width": 346.02034393768224,
+   "n": 6118
+  }
+ },
+ "B3_minus_B2": {
+  "M1_spearman": [
+   -0.001960290955803337,
+   0.008635070180547735,
+   0.003250049935818504
+  ],
+  "M3_auc": [
+   -0.002113700941434038,
+   0.005249643744278478,
+   0.0016260082418389395
+  ]
+ },
+ "gate_reference_bar": "B3_event_gbr_hawkes",
+ "feature_names": {
+  "base": [
+   "t_tok",
+   "log_t",
+   "cap_known",
+   "cap_value",
+   "frac_cap",
+   "n_ev",
+   "ev_rate_1k",
+   "since_last_ev",
+   "n_ev_200",
+   "n_ev_500",
+   "n_cycles",
+   "since_commit",
+   "mean_cycle_len",
+   "last_cycle_len",
+   "n_ev_in_cycle",
+   "has_cand",
+   "since_cand",
+   "seg_len",
+   "seg_index",
+   "seg_operator",
+   "cnt_backtrack",
+   "cnt_verify",
+   "cnt_branch",
+   "cnt_subgoal_done",
+   "cnt_failed_attempt",
+   "cnt_commit",
+   "since_backtrack",
+   "since_verify",
+   "since_branch",
+   "since_subgoal_done",
+   "since_failed_attempt",
+   "since_commit_t"
+  ],
+  "hawkes": [
+   "lam_backtrack",
+   "lam_verify",
+   "lam_branch",
+   "lam_subgoal_done",
+   "lam_failed_attempt",
+   "lam_commit",
+   "rho_group"
+  ],
+  "cat": [
+   "model_code",
+   "effort_code",
+   "layer_code"
+  ]
+ },
+ "horizon_H": 256.0
+}

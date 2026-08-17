@@ -1,0 +1,8 @@
+{
+ "n": 1002,
+ "load_s": 13.704493761062622,
+ "gen_s": 373.69910311698914,
+ "s_per_window": 0.37295319719942743,
+ "adapter": "/home/user/ki_cycle_end/outputs/lora_noinj",
+ "data": "data/lora_windows/tok_noinj_test.jsonl"
+}

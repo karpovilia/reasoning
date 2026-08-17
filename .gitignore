@@ -1,0 +1,19 @@
+# Тела корпусов: скачиваются командой make fetch, в git не хранятся.
+/data/corpora/
+/data/archives/
+
+# Окружения и кэши.
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Ключи и файлы среды: они и запрещены проверкой, но пусть не попадают и случайно.
+.env
+*.key
+*.pem
+.overleaf
+
+# Временное.
+*.tmp
+*.swp

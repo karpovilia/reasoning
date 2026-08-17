@@ -1,0 +1,93 @@
+{
+ "layers": {
+  "native_po": {
+   "traces": 3334,
+   "windows": 9957
+  },
+  "effort_repeats": {
+   "traces": 2455,
+   "windows": 7321
+  },
+  "traces_30b": {
+   "traces": 288,
+   "windows": 864
+  },
+  "distill_vs_self": {
+   "traces": 290,
+   "windows": 867
+  },
+  "event_span_dispersion": {
+   "traces": 293,
+   "windows": 879
+  }
+ },
+ "splits": {
+  "train": 11802,
+  "val": 1968,
+  "test": 6118
+ },
+ "traces": 6660,
+ "traces_by_split": {
+  "train": 3954,
+  "val": 657,
+  "test": 2049
+ },
+ "windows_by_bucket": {
+  "A": 2170,
+  "B": 1364,
+  "C": 2332,
+  "D": 3315,
+  "E": 4144,
+  "F": 3754,
+  "G": 1857,
+  "H": 637,
+  "I": 243,
+  "J": 72,
+  "K": 0
+ },
+ "matrix_source": {
+  "group": 10829,
+  "pooled": 9059
+ },
+ "models": {
+  "openai/gpt-oss-120b": 388,
+  "openai/gpt-oss-20b": 2033,
+  "Qwen/Qwen3.5-122B-A10B-FP8": 504,
+  "Qwen/Qwen3-4B": 767,
+  "Qwen/Qwen3-8B": 792,
+  "deepseek-ai/DeepSeek-R1-Distill-Llama-8B": 145,
+  "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": 145,
+  "Qwen/Qwen3.6-35B-A3B-FP8": 1305,
+  "qwen/Qwen3-30B-A3B": 145,
+  "qwen/Qwen3-32B": 143,
+  "gpt-oss-20b": 293
+ },
+ "rem_quantiles": {
+  "5": 7.028654615324285,
+  "10": 14.219330821738971,
+  "25": 50.83555577919792,
+  "50": 144.94695882191647,
+  "75": 329.4307972841465,
+  "90": 647.8504447300031,
+  "95": 993.7463388102678
+ },
+ "n_events_total": 135486,
+ "rem_mean": 293.31448131137364,
+ "base_rate_binH": 0.6700020112630732,
+ "bucket_edges": [
+  0.0,
+  16.0,
+  32.0,
+  64.0,
+  128.0,
+  256.0,
+  512.0,
+  1024.0,
+  2048.0,
+  4096.0,
+  8192.0
+ ],
+ "horizon_H": 256.0,
+ "decay_tokens": 140.0,
+ "seed": 20260816
+}

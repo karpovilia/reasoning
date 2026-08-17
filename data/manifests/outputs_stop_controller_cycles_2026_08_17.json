@@ -1,0 +1,26 @@
+{
+ "корпус": "outputs_stop_controller_cycles_2026_08_17",
+ "описание": "построчные прогнозы справочного адаптера и опись трасс отложенной части линии stop_controller_cycles_2026_08_17; вынесены из git по той же причине",
+ "происхождение": "experiments/monitors/stop_controller_cycles_2026_08_17/PROVENANCE.md",
+ "собран": "2026-08-17 09:37 МСК",
+ "собран_на": "user@192.168.2.43",
+ "архив": {
+  "объект": "gpb-reasoning/clean/outputs/outputs_stop_controller_cycles_2026_08_17.tar.zst",
+  "имя": "outputs_stop_controller_cycles_2026_08_17.tar.zst",
+  "размер": 100369,
+  "sha256": "a044954433958033f88fdaf532465fada3e70e546a9cf8ff23490c1318e5b7d0",
+  "корень_распаковки": "outputs_stop_controller_cycles_2026_08_17"
+ },
+ "файлы": [
+  {
+   "путь": "pred_lora_ref.jsonl",
+   "размер": 537244,
+   "sha256": "6ab441c348e1136a0c638893e0805e66fdd0eca71e7097a0b36a326034e15d07"
+  },
+  {
+   "путь": "test_traces_meta.json",
+   "размер": 412599,
+   "sha256": "53ba1f429d673e44f5b2816d84e7ef00e1d7fb9b77a631d4bf151328251ddf9c"
+  }
+ ]
+}
