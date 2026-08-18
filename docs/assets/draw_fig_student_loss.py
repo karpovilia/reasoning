@@ -70,27 +70,27 @@ ax1.axvline(973, color=C_FAST, linewidth=1.0, linestyle=":", zorder=2)
 ax1.text(968, 0.2335, "останов по времени, 973  ", color=C_FAST, fontsize=8.5,
          va="bottom", ha="right", rotation=90)
 ax1.axvline(s_slow[-1], color=C_SLOW, linewidth=1.0, linestyle=":", zorder=2)
-ax1.text(s_slow[-1] - 5, 0.2335, f"досчитано на 00:10 МСК, {s_slow[-1]}  ",
+ax1.text(s_slow[-1] - 5, 0.2335, f"досчитано на 02:10 МСК, {s_slow[-1]}  ",
          color=C_SLOW, fontsize=8.5, va="bottom", ha="right", rotation=90)
 ax1.set_title("Потеря на обучающих окнах", fontsize=11.5, color=INK, pad=10)
 ax1.set_xlabel("шаг оптимизатора", fontsize=9.5, color=MUTED)
 ax1.set_ylabel("потеря, логарифмическая шкала", fontsize=9.5, color=MUTED)
-ax1.set_xlim(0, 1050)
+ax1.set_xlim(0, 1080)
 
 # --- панель 2: потеря на срезе --------------------------------------------
 ax2.plot([p[0] for p in v_fast], [p[1] for p in v_fast], color=C_FAST,
          linewidth=2.0, marker="o", markersize=6, zorder=3, label="темп 1e-4")
 ax2.plot([p[0] for p in v_slow], [p[1] for p in v_slow], color=C_SLOW,
-         linewidth=2.0, marker="o", markersize=8, zorder=3, label="темп 5e-5, снята одна точка")
+         linewidth=2.0, marker="o", markersize=8, zorder=3, label="темп 5e-5, полный проход")
 for st, lo in v_fast:
     ax2.annotate(f"{lo:.4f}", (st, lo), textcoords="offset points",
                  xytext=(0, 9), ha="center", fontsize=8, color=MUTED)
 for st, lo in v_slow:
     ax2.annotate(f"{lo:.4f}", (st, lo), textcoords="offset points",
-                 xytext=(0, -16), ha="center", fontsize=8.5, color=C_SLOW)
+                 xytext=(0, -17), ha="center", fontsize=8.5, color=C_SLOW)
 ax2.set_title("Потеря на отложенном срезе", fontsize=11.5, color=INK, pad=10)
 ax2.set_xlabel("шаг оптимизатора", fontsize=9.5, color=MUTED)
-ax2.set_xlim(60, 1000)
+ax2.set_xlim(60, 1080)
 
 ticks = [0.23, 0.25, 0.28, 0.32, 0.36, 0.42, 0.48, 0.55]
 for ax in (ax1, ax2):
@@ -98,7 +98,7 @@ for ax in (ax1, ax2):
     ax.yaxis.set_minor_locator(FixedLocator([]))
     ax.yaxis.set_major_formatter(FixedFormatter([f"{t:g}" for t in ticks]))
 ax1.set_ylim(0.225, 0.56)
-ax2.set_ylim(0.232, 0.262)
+ax2.set_ylim(0.234, 0.261)
 ax2.yaxis.set_major_locator(FixedLocator([0.238, 0.244, 0.249, 0.256]))
 ax2.yaxis.set_major_formatter(FixedFormatter(["0.238", "0.244", "0.249", "0.256"]))
 
