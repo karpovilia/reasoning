@@ -30,6 +30,8 @@ FIGS = {
     "fig_dispersion_by_effort.png": "Разброс длины рассуждения на одном и том же вопросе.",
     "fig_student_loss.png": "Кривые потери двух прогонов дообучения ученика-разметчика: "
                             "темп 1e-4 против 5e-5, логарифмическая шкала по потере.",
+    "fig_events_profile.png": "Профиль событий: слева по наборам вопросов в расчёте на трассу, "
+                              "справа по моделям и уровням усилия в расчёте на тысячу токенов.",
 }
 
 PREAMBLE = r"""% Отчёт о работе. Собран из docs/reports/report_2026_08_18.md чистового
@@ -103,10 +105,17 @@ def split_captions(md_text):
     return "\n".join(out), caps
 
 
-def col_spec(body, n):
-    """Спецификация колонок: доля ширины пропорциональна длине содержимого."""
+def col_spec(body, n, skip_head=False):
+    """Спецификация колонок: доля ширины пропорциональна длине содержимого.
+
+    При повёрнутой шапке её длина на ширину колонки не влияет, поэтому первая
+    строка из расчёта исключается.
+    """
     widths = [1] * n
-    for row in body.split(ROW_SEP):
+    rows = body.split(ROW_SEP)
+    if skip_head and rows:
+        rows = rows[1:]
+    for row in rows:
         cells = row.split("&")
         if len(cells) != n:
             continue
@@ -146,12 +155,31 @@ def to_tabular(blk, caps, counter):
     for junk in ("\\endhead\n", "\\endlastfoot\n", "\\bottomrule\n"):
         body = body.replace(junk, "")
     body = body.replace("\\noalign{}\n", "\n").replace("\\noalign{}", "").strip("\n")
+    # у широких таблиц заголовки колонок не помещаются и рвутся на буквы,
+    # поэтому шапку ставим наклонно
+    rotate = ncols >= 7
+    if rotate:
+        # шапка идёт сразу за \toprule, её и поворачиваем, линейку не трогаем
+        rule = "\\toprule"
+        i = body.find(rule)
+        head_start = body.find("\n", i) + 1 if i >= 0 else 0
+        head_end = body.find(ROW_SEP, head_start)
+        head_cells = [c.strip() for c in body[head_start:head_end].split("&")]
+        if len(head_cells) == ncols:
+            # первый столбец описательный, его заголовок оставляем прямым
+            head = " & ".join(
+                c if k == 0 or not c else "\\rotatebox[origin=l]{45}{%s}" % c
+                for k, c in enumerate(head_cells))
+            body = body[:head_start] + head + body[head_end:]
+        else:
+            rotate = False
+
     cap = ""
     if counter[0] < len(caps):
         cap = "\\caption{%s}\n" % caps[counter[0]]
         counter[0] += 1
     return ("\\begin{table}[htbp]\n\\centering\n\\small\n%s\\begin{tabular}{%s}\n%s\n"
-            "\\bottomrule\n\\end{tabular}\n\\end{table}" % (cap, col_spec(body, ncols), body))
+            "\\bottomrule\n\\end{tabular}\n\\end{table}" % (cap, col_spec(body, ncols, rotate), body))
 
 
 def main(dest: Path):
