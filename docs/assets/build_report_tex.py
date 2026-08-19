@@ -4,20 +4,24 @@
 Запуск: python3 docs/assets/build_report_tex.py <путь к клону проекта Overleaf>
 
 Что делает и почему именно так:
-  1. pandoc переводит markdown в LaTeX;
-  2. знак минус U+2212 заменяется на математический, шрифт T2A его не набирает;
-  3. в длинных путях и составных именах расставляются точки разрыва строки,
+  1. подписи таблиц вида «Таблица N. Текст», стоящие в markdown сразу за таблицей,
+     вынимаются из текста и превращаются в \\caption, иначе печатались бы дважды;
+  2. pandoc переводит markdown в LaTeX;
+  3. знак минус U+2212 заменяется на математический, шрифт T2A его не набирает;
+  4. в длинных путях и составных именах расставляются точки разрыва строки,
      иначе они вылезают за поля;
-  4. таблицы переводятся из longtable в tabular. Это не косметика: longtable
+  5. таблицы переводятся из longtable в tabular. Это не косметика: longtable
      пишет свои метки в файл .aux, и устаревший .aux в кэше Overleaf ломает
-     сборку сообщением про неопределённую команду. Все таблицы отчёта короче
-     страницы, перенос им не нужен;
-  5. рисунки оформляются плавающими с подписями;
-  6. счётчики разделов молчат, нумерация в отчёте своя, внутри текста заголовков.
+     сборку. Все таблицы отчёта короче страницы, перенос им не нужен;
+  6. ширина колонки считается по длине её содержимого, равные доли одновременно
+     рвут числовые колонки и ломают переносом длинные названия моделей;
+  7. рисунки оформляются плавающими с подписями;
+  8. счётчики разделов молчат, нумерация в отчёте своя, внутри текста заголовков.
 """
 import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 MD = Path("/home/ki/repos/reasoning_clean/docs/reports/report_2026_08_18.md")
@@ -41,6 +45,13 @@ PREAMBLE = r"""% Отчёт о работе. Собран из docs/reports/repo
 \usepackage{graphicx}
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{microtype}
+\usepackage[labelformat=empty,skip=4pt]{caption}
+% lineno нужен не для нумерации строк: он определяет \@LN@col и родню, которыми
+% засорён кэшированный output.aux Overleaf после сборки budget_eacl.tex в режиме
+% review. Без него первая же компиляция после смены главного файла падает с
+% Undefined control sequence в output.aux. Команда \linenumbers не вызывается,
+% поэтому на вид документа пакет не влияет. Не удалять.
+\usepackage{lineno}
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 \graphicspath{{}}
 \setlength{\emergencystretch}{3em}
@@ -62,28 +73,95 @@ PREAMBLE = r"""% Отчёт о работе. Собран из docs/reports/repo
 
 """
 
+CAPTION_RE = re.compile(r"^Таблица \d+\.\s.+$")
+ROW_SEP = "\\" + "\\"          # разделитель строк таблицы в LaTeX
+CELL_CLEAN = re.compile(r"\\[a-zA-Z]+\s*|[{}]")
 
-def to_tabular(m):
-    blk = m.group(0)
-    spec = re.match(r"\\begin\{longtable\}\[\]\{(.*?)\}\n", blk, re.S).group(1)
+
+def split_captions(md_text):
+    """Вынимает подписи таблиц из markdown: текст без них и список подписей."""
+    lines = md_text.split("\n")
+    out, caps, i = [], [], 0
+    while i < len(lines):
+        ln = lines[i]
+        if ln.startswith("|") and i + 1 < len(lines) and lines[i + 1].startswith("|---"):
+            while i < len(lines) and lines[i].startswith("|"):
+                out.append(lines[i])
+                i += 1
+            j = i
+            while j < len(lines) and lines[j].strip() == "":
+                j += 1
+            if j < len(lines) and CAPTION_RE.match(lines[j]):
+                caps.append(lines[j])
+                i = j + 1
+                while i < len(lines) and lines[i].strip() == "":
+                    i += 1
+                out.append("")
+            continue
+        out.append(ln)
+        i += 1
+    return "\n".join(out), caps
+
+
+def col_spec(body, n):
+    """Спецификация колонок: доля ширины пропорциональна длине содержимого."""
+    widths = [1] * n
+    for row in body.split(ROW_SEP):
+        cells = row.split("&")
+        if len(cells) != n:
+            continue
+        for k, cell in enumerate(cells):
+            txt = CELL_CLEAN.sub("", cell).strip()
+            widths[k] = max(widths[k], min(len(txt), 44))
+    total = sum(widths)
+    share = [w / total for w in widths]
+    cap = 0.34
+    for _ in range(4):
+        over = [i for i, x in enumerate(share) if x > cap]
+        if not over:
+            break
+        excess = sum(share[i] - cap for i in over)
+        for i in over:
+            share[i] = cap
+        rest = [i for i in range(n) if i not in over]
+        if not rest:
+            break
+        for i in rest:
+            share[i] += excess / len(rest)
+    cols = "".join(
+        r">{\raggedright\arraybackslash}p{\dimexpr%.4f\linewidth-2\tabcolsep\relax}" % x
+        for x in share)
+    return "@{}" + cols + "@{}"
+
+
+def mark_cols(m):
+    """Помечает число колонок; ширины считаются позже, когда доступно тело."""
+    return "\\begin{longtable}[]{@@COLS%d@@}" % len(m.group(1))
+
+
+def to_tabular(blk, caps, counter):
+    mark = re.match(r"\\begin\{longtable\}\[\]\{(.*?)\}\n", blk, re.S).group(1)
+    ncols = int(re.match(r"@@COLS(\d+)@@", mark).group(1))
     body = blk.split("\n", 1)[1].rsplit("\\end{longtable}", 1)[0]
     for junk in ("\\endhead\n", "\\endlastfoot\n", "\\bottomrule\n"):
         body = body.replace(junk, "")
     body = body.replace("\\noalign{}\n", "\n").replace("\\noalign{}", "").strip("\n")
-    return ("\\begin{table}[htbp]\n\\centering\n\\small\n\\begin{tabular}{%s}\n%s\n"
-            "\\bottomrule\n\\end{tabular}\n\\end{table}" % (spec, body))
-
-
-def widen(m):
-    n = len(m.group(1))
-    col = (r">{\raggedright\arraybackslash}p{\dimexpr(\linewidth-%d\tabcolsep)/%d\relax}"
-           % (2 * n, n))
-    return "\\begin{longtable}[]{@{}" + col * n + "@{}}"
+    cap = ""
+    if counter[0] < len(caps):
+        cap = "\\caption{%s}\n" % caps[counter[0]]
+        counter[0] += 1
+    return ("\\begin{table}[htbp]\n\\centering\n\\small\n%s\\begin{tabular}{%s}\n%s\n"
+            "\\bottomrule\n\\end{tabular}\n\\end{table}" % (cap, col_spec(body, ncols), body))
 
 
 def main(dest: Path):
-    body = subprocess.run(["pandoc", "-f", "gfm", "-t", "latex", "--wrap=none", str(MD)],
+    md_clean, caps = split_captions(MD.read_text())
+    with tempfile.NamedTemporaryFile("w", suffix=".md", delete=False) as fh:
+        fh.write(md_clean)
+        tmp = fh.name
+    body = subprocess.run(["pandoc", "-f", "gfm", "-t", "latex", "--wrap=none", tmp],
                           capture_output=True, text=True, check=True).stdout
+    print("подписей таблиц найдено:", len(caps))
 
     for name, cap in FIGS.items():
         old = "\\pandocbounded{\\includegraphics[keepaspectratio]{../assets/%s}}" % name
@@ -93,9 +171,16 @@ def main(dest: Path):
 
     body = body.replace("\u2212", "$-$")
     body = body.replace("/", "/\\allowbreak{}").replace("\\_", "\\_\\allowbreak{}")
-    body = re.sub(r"\\begin\{longtable\}\[\]\{@\{\}([lcr]+)@\{\}\}", widen, body)
+    body = re.sub(r"\\begin\{longtable\}\[\]\{@\{\}([lcr]+)@\{\}\}", mark_cols, body)
+
+    counter = [0]
     body = re.sub(r"\\begin\{longtable\}\[\]\{.*?\}\n.*?\\end\{longtable\}",
-                  to_tabular, body, flags=re.S)
+                  lambda m: to_tabular(m.group(0), caps, counter), body, flags=re.S)
+    if counter[0] != len(caps):
+        raise SystemExit("подписей %d, таблиц %d - расхождение" % (len(caps), counter[0]))
+    if "@@COLS" in body:
+        raise SystemExit("остались неразобранные метки колонок")
+
     body = re.sub(r"@@FIG:([^:]+):([^@]+)@@",
                   lambda m: ("\\begin{figure}[htbp]\n\\centering\n"
                              "\\includegraphics[width=\\linewidth]{%s}\n"
