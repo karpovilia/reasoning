@@ -72,10 +72,10 @@ ax1.axvline(973, color=C_FAST, linewidth=1.0, linestyle=":", zorder=2)
 ax1.text(973, 0.2335, " останов по времени, 973", color=C_FAST, fontsize=8,
          va="bottom", ha="left", rotation=90)
 ax1.axvline(s_slow[-1], color=C_SLOW, linewidth=1.0, linestyle=":", zorder=2)
-ax1.text(s_slow[-1], 0.2335, f" досчитано на 10:57 МСК, {s_slow[-1]}", color=C_SLOW,
+ax1.text(s_slow[-1], 0.2335, f" досчитано на 18:29 МСК, {s_slow[-1]}", color=C_SLOW,
          fontsize=8, va="bottom", ha="left", rotation=90)
 ax1.axvline(PLAN, color=MUTED, linewidth=1.0, linestyle="--", zorder=2)
-ax1.annotate("конец расписания, 7755 шагов\nобучение закончится\n21 августа около 08:10 МСК",
+ax1.annotate("конец расписания, 7755 шагов\nобучение закончится\n21 августа между 08:55 и 11:05 МСК",
              xy=(PLAN, 0.30), xytext=(PLAN - 260, 0.40), fontsize=8.5, color=INK,
              ha="right", va="center",
              arrowprops=dict(arrowstyle="->", color=MUTED, lw=0.9))
@@ -102,7 +102,7 @@ for st, lo in v_slow:
                  xytext=(9, -4), ha="left", fontsize=8.5, color=C_SLOW)
 ax2.set_title("Потеря на отложенном срезе", fontsize=11.5, color=INK, pad=10)
 ax2.set_xlabel("шаг оптимизатора", fontsize=9.5, color=MUTED)
-ax2.set_xlim(60, 2120)
+ax2.set_xlim(60, 3150)
 
 ticks = [0.23, 0.25, 0.28, 0.32, 0.36, 0.42, 0.48, 0.55]
 for ax in (ax1, ax2):
@@ -110,9 +110,9 @@ for ax in (ax1, ax2):
     ax.yaxis.set_minor_locator(FixedLocator([]))
     ax.yaxis.set_major_formatter(FixedFormatter([f"{t:g}" for t in ticks]))
 ax1.set_ylim(0.225, 0.56)
-ax2.set_ylim(0.2295, 0.261)
-ax2.yaxis.set_major_locator(FixedLocator([0.2326, 0.2356, 0.238, 0.244, 0.249, 0.256]))
-ax2.yaxis.set_major_formatter(FixedFormatter(["0.2326", "0.2356", "0.238", "0.244", "0.249", "0.256"]))
+ax2.set_ylim(0.2265, 0.261)
+ax2.yaxis.set_major_locator(FixedLocator([0.2292, 0.2326, 0.2356, 0.238, 0.244, 0.249, 0.256]))
+ax2.yaxis.set_major_formatter(FixedFormatter(["0.2292", "0.2326", "0.2356", "0.238", "0.244", "0.249", "0.256"]))
 
 ax1.legend(frameon=False, fontsize=9.5, loc="upper right", labelcolor=INK)
 ax2.legend(frameon=False, fontsize=9.5, loc="upper right", labelcolor=INK)
@@ -124,7 +124,7 @@ fig.text(0.5, 0.035,
          "Различаются только темп обучения и длина прогона.",
          ha="center", fontsize=8.5, color=MUTED)
 fig.text(0.5, 0.006,
-         "Полный проход равен 7755 шагам; обучение закончится 21 августа около 08:10 МСК.",
+         "Полный проход равен 7755 шагам; обучение закончится 21 августа между 08:55 и 11:05 МСК.",
          ha="center", fontsize=8.5, color=MUTED)
 fig.tight_layout(rect=[0.01, 0.075, 0.99, 0.955])
 fig.savefig(OUT, dpi=170, facecolor="white")
