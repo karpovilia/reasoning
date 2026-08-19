@@ -49,7 +49,8 @@ val = json.loads((ROOT / "lora_judge_full_2026_08_18/outputs/val_loss_curve.json
 v_fast = [(r["шаг"], r["потеря на срезе"]) for r in val["прежний прогон темп 1e-4"]]
 v_slow = [(r["шаг"], r["потеря на срезе"]) for r in val["новый прогон темп 5e-5"]]
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.6, 4.5))
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12.4, 4.6),
+                               gridspec_kw={"width_ratios": [1.35, 1.0]})
 
 for ax in (ax1, ax2):
     ax.set_yscale("log")
@@ -66,16 +67,27 @@ ax1.plot(s_fast, l_fast, color=C_FAST, linewidth=2.0, zorder=3,
          label="темп 1e-4, снят по времени")
 ax1.plot(s_slow, l_slow, color=C_SLOW, linewidth=2.0, zorder=3,
          label="темп 5e-5, полный проход")
+PLAN = 7755
 ax1.axvline(973, color=C_FAST, linewidth=1.0, linestyle=":", zorder=2)
-ax1.text(968, 0.2335, "останов по времени, 973  ", color=C_FAST, fontsize=8.5,
-         va="bottom", ha="right", rotation=90)
+ax1.text(973, 0.2335, " останов по времени, 973", color=C_FAST, fontsize=8,
+         va="bottom", ha="left", rotation=90)
 ax1.axvline(s_slow[-1], color=C_SLOW, linewidth=1.0, linestyle=":", zorder=2)
-ax1.text(s_slow[-1] - 5, 0.2335, f"досчитано на 10:20 МСК, {s_slow[-1]}  ",
-         color=C_SLOW, fontsize=8.5, va="bottom", ha="right", rotation=90)
+ax1.text(s_slow[-1], 0.2335, f" досчитано на 10:57 МСК, {s_slow[-1]}", color=C_SLOW,
+         fontsize=8, va="bottom", ha="left", rotation=90)
+ax1.axvline(PLAN, color=MUTED, linewidth=1.0, linestyle="--", zorder=2)
+ax1.annotate("конец расписания, 7755 шагов\nобучение закончится\n21 августа около 08:10 МСК",
+             xy=(PLAN, 0.30), xytext=(PLAN - 260, 0.40), fontsize=8.5, color=INK,
+             ha="right", va="center",
+             arrowprops=dict(arrowstyle="->", color=MUTED, lw=0.9))
+ax1.annotate("", xy=(PLAN, 0.245), xytext=(s_slow[-1], 0.245),
+             arrowprops=dict(arrowstyle="<->", color=MUTED, lw=0.9))
+ax1.text((PLAN + s_slow[-1]) / 2, 0.250,
+         f"осталось {PLAN - s_slow[-1]} шагов", fontsize=8.5, color=MUTED,
+         ha="center", va="bottom")
 ax1.set_title("Потеря на обучающих окнах", fontsize=11.5, color=INK, pad=10)
 ax1.set_xlabel("шаг оптимизатора", fontsize=9.5, color=MUTED)
 ax1.set_ylabel("потеря, логарифмическая шкала", fontsize=9.5, color=MUTED)
-ax1.set_xlim(0, 2120)
+ax1.set_xlim(0, 8100)
 
 # --- панель 2: потеря на срезе --------------------------------------------
 ax2.plot([p[0] for p in v_fast], [p[1] for p in v_fast], color=C_FAST,
@@ -84,10 +96,10 @@ ax2.plot([p[0] for p in v_slow], [p[1] for p in v_slow], color=C_SLOW,
          linewidth=2.0, marker="o", markersize=8, zorder=3, label="темп 5e-5, полный проход")
 for st, lo in v_fast:
     ax2.annotate(f"{lo:.4f}", (st, lo), textcoords="offset points",
-                 xytext=(0, 9), ha="center", fontsize=8, color=MUTED)
+                 xytext=(-11, 7), ha="right", fontsize=8, color=MUTED)
 for st, lo in v_slow:
     ax2.annotate(f"{lo:.4f}", (st, lo), textcoords="offset points",
-                 xytext=(0, -17), ha="center", fontsize=8.5, color=C_SLOW)
+                 xytext=(9, -4), ha="left", fontsize=8.5, color=C_SLOW)
 ax2.set_title("Потеря на отложенном срезе", fontsize=11.5, color=INK, pad=10)
 ax2.set_xlabel("шаг оптимизатора", fontsize=9.5, color=MUTED)
 ax2.set_xlim(60, 2120)
@@ -102,16 +114,19 @@ ax2.set_ylim(0.2295, 0.261)
 ax2.yaxis.set_major_locator(FixedLocator([0.2326, 0.2356, 0.238, 0.244, 0.249, 0.256]))
 ax2.yaxis.set_major_formatter(FixedFormatter(["0.2326", "0.2356", "0.238", "0.244", "0.249", "0.256"]))
 
-ax1.legend(frameon=False, fontsize=9.5, loc="upper center", labelcolor=INK)
+ax1.legend(frameon=False, fontsize=9.5, loc="upper right", labelcolor=INK)
 ax2.legend(frameon=False, fontsize=9.5, loc="upper right", labelcolor=INK)
 
 fig.suptitle("Дообучение ученика-разметчика: два темпа обучения при прочих равных",
              fontsize=13, color=INK, y=0.99)
-fig.text(0.5, 0.005,
+fig.text(0.5, 0.035,
          "Ранг 32, множитель 64, отсев 0.05, зерно 20260815, две карты RTX A6000. "
          "Различаются только темп обучения и длина прогона.",
          ha="center", fontsize=8.5, color=MUTED)
-fig.tight_layout(rect=[0, 0.03, 1, 0.955])
+fig.text(0.5, 0.006,
+         "Полный проход равен 7755 шагам; обучение закончится 21 августа около 08:10 МСК.",
+         ha="center", fontsize=8.5, color=MUTED)
+fig.tight_layout(rect=[0.01, 0.075, 0.99, 0.955])
 fig.savefig(OUT, dpi=170, facecolor="white")
 print("сохранено:", OUT)
 print("точек обучающей кривой:", len(s_fast), "и", len(s_slow))
