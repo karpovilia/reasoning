@@ -76,6 +76,9 @@ PREAMBLE = r"""% Отчёт о работе. Собран из docs/reports/repo
 """
 
 CAPTION_RE = re.compile(r"^Таблица \d+\.\s.+$")
+# заголовки колонок, перед которыми в таблице ставится вертикальная черта:
+# так отделяется группа колонок, считающая те же строки в другом разрезе
+LEFT_BAR_HEADS = {"низкое усилие"}
 ROW_SEP = "\\" + "\\"          # разделитель строк таблицы в LaTeX
 CELL_CLEAN = re.compile(r"\\[a-zA-Z]+\s*|[{}]")
 
@@ -105,7 +108,18 @@ def split_captions(md_text):
     return "\n".join(out), caps
 
 
-def col_spec(body, n, skip_head=False):
+def bar_positions(body, n):
+    """Номера колонок, перед которыми нужна вертикальная черта."""
+    head = body.split(ROW_SEP, 1)[0]
+    if "\\toprule" in head:
+        head = head.split("\n", 1)[1] if "\n" in head else head
+    cells = [CELL_CLEAN.sub("", c).strip() for c in head.split("&")]
+    if len(cells) != n:
+        return set()
+    return {i for i, c in enumerate(cells) if c in LEFT_BAR_HEADS}
+
+
+def col_spec(body, n, skip_head=False, bars=frozenset()):
     """Спецификация колонок: доля ширины пропорциональна длине содержимого.
 
     При повёрнутой шапке её длина на ширину колонки не влияет, поэтому первая
@@ -138,8 +152,9 @@ def col_spec(body, n, skip_head=False):
         for i in rest:
             share[i] += excess / len(rest)
     cols = "".join(
-        r">{\raggedright\arraybackslash}p{\dimexpr%.4f\linewidth-2\tabcolsep\relax}" % x
-        for x in share)
+        ("|" if i in bars else "")
+        + r">{\raggedright\arraybackslash}p{\dimexpr%.4f\linewidth-2\tabcolsep\relax}" % x
+        for i, x in enumerate(share))
     return "@{}" + cols + "@{}"
 
 
@@ -157,6 +172,7 @@ def to_tabular(blk, caps, counter):
     body = body.replace("\\noalign{}\n", "\n").replace("\\noalign{}", "").strip("\n")
     # у широких таблиц заголовки колонок не помещаются и рвутся на буквы,
     # поэтому шапку ставим наклонно
+    bars = bar_positions(body, ncols)
     rotate = ncols >= 7
     if rotate:
         # шапка идёт сразу за \toprule, её и поворачиваем, линейку не трогаем
@@ -179,7 +195,7 @@ def to_tabular(blk, caps, counter):
         cap = "\\caption{%s}\n" % caps[counter[0]]
         counter[0] += 1
     return ("\\begin{table}[htbp]\n\\centering\n\\small\n%s\\begin{tabular}{%s}\n%s\n"
-            "\\bottomrule\n\\end{tabular}\n\\end{table}" % (cap, col_spec(body, ncols, rotate), body))
+            "\\bottomrule\n\\end{tabular}\n\\end{table}" % (cap, col_spec(body, ncols, rotate, bars), body))
 
 
 def main(dest: Path):
