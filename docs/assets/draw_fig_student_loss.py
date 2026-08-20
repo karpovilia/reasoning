@@ -75,10 +75,6 @@ ax1.axvline(s_slow[-1], color=C_SLOW, linewidth=1.0, linestyle=":", zorder=2)
 ax1.text(s_slow[-1], 0.2335, f" досчитано на 12:29 МСК 20 августа, {s_slow[-1]}", color=C_SLOW,
          fontsize=8, va="bottom", ha="left", rotation=90)
 ax1.axvline(PLAN, color=MUTED, linewidth=1.0, linestyle="--", zorder=2)
-ax1.annotate("конец расписания, 7755 шагов\nобучение закончится\n21 августа между 08:55 и 11:05 МСК",
-             xy=(PLAN, 0.30), xytext=(PLAN - 260, 0.40), fontsize=8.5, color=INK,
-             ha="right", va="center",
-             arrowprops=dict(arrowstyle="->", color=MUTED, lw=0.9))
 ax1.annotate("", xy=(PLAN, 0.245), xytext=(s_slow[-1], 0.245),
              arrowprops=dict(arrowstyle="<->", color=MUTED, lw=0.9))
 ax1.text((PLAN + s_slow[-1]) / 2, 0.250,
@@ -97,7 +93,9 @@ ax2.plot([p[0] for p in v_slow], [p[1] for p in v_slow], color=C_SLOW,
 for st, lo in v_fast:
     ax2.annotate(f"{lo:.4f}", (st, lo), textcoords="offset points",
                  xytext=(-11, 7), ha="right", fontsize=8, color=MUTED)
-for st, lo in v_slow:
+for k, (st, lo) in enumerate(v_slow):
+    if k % 2 and k < len(v_slow) - 1:
+        continue          # через одну, иначе подписи наезжают
     ax2.annotate(f"{lo:.4f}", (st, lo), textcoords="offset points",
                  xytext=(9, -4), ha="left", fontsize=8.5, color=C_SLOW)
 ax2.set_title("Потеря на отложенном срезе", fontsize=11.5, color=INK, pad=10)
@@ -110,11 +108,11 @@ for ax in (ax1, ax2):
     ax.yaxis.set_minor_locator(FixedLocator([]))
     ax.yaxis.set_major_formatter(FixedFormatter([f"{t:g}" for t in ticks]))
 ax1.set_ylim(0.225, 0.56)
-ax2.set_ylim(0.2265, 0.261)
-ax2.yaxis.set_major_locator(FixedLocator([0.2292, 0.2326, 0.2356, 0.238, 0.244, 0.249, 0.256]))
-ax2.yaxis.set_major_formatter(FixedFormatter(["0.2292", "0.2326", "0.2356", "0.238", "0.244", "0.249", "0.256"]))
+ax2.set_ylim(0.2205, 0.2615)
+ax2.yaxis.set_major_locator(FixedLocator([0.2242, 0.2282, 0.2326, 0.238, 0.244, 0.249, 0.256]))
+ax2.yaxis.set_major_formatter(FixedFormatter(["0.2242", "0.2282", "0.2326", "0.238", "0.244", "0.249", "0.256"]))
 
-ax1.legend(frameon=False, fontsize=9.5, loc="upper right", labelcolor=INK)
+ax1.legend(frameon=False, fontsize=9.5, loc="center right", labelcolor=INK)
 ax2.legend(frameon=False, fontsize=9.5, loc="upper right", labelcolor=INK)
 
 fig.suptitle("Дообучение ученика-разметчика: два темпа обучения при прочих равных",
@@ -124,7 +122,7 @@ fig.text(0.5, 0.035,
          "Различаются только темп обучения и длина прогона.",
          ha="center", fontsize=8.5, color=MUTED)
 fig.text(0.5, 0.006,
-         "Полный проход равен 7755 шагам; обучение закончится 21 августа между 08:55 и 11:05 МСК.",
+         "Полный проход равен 7755 шагам; обучение закончится 21 августа около 08:40 МСК.",
          ha="center", fontsize=8.5, color=MUTED)
 fig.tight_layout(rect=[0.01, 0.075, 0.99, 0.955])
 fig.savefig(OUT, dpi=170, facecolor="white")
