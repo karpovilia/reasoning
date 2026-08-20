@@ -72,7 +72,7 @@ ax1.axvline(973, color=C_FAST, linewidth=1.0, linestyle=":", zorder=2)
 ax1.text(973, 0.2335, " останов по времени, 973", color=C_FAST, fontsize=8,
          va="bottom", ha="left", rotation=90)
 ax1.axvline(s_slow[-1], color=C_SLOW, linewidth=1.0, linestyle=":", zorder=2)
-ax1.text(s_slow[-1], 0.2335, f" досчитано на 18:29 МСК, {s_slow[-1]}", color=C_SLOW,
+ax1.text(s_slow[-1], 0.2335, f" досчитано на 12:29 МСК 20 августа, {s_slow[-1]}", color=C_SLOW,
          fontsize=8, va="bottom", ha="left", rotation=90)
 ax1.axvline(PLAN, color=MUTED, linewidth=1.0, linestyle="--", zorder=2)
 ax1.annotate("конец расписания, 7755 шагов\nобучение закончится\n21 августа между 08:55 и 11:05 МСК",
@@ -102,7 +102,7 @@ for st, lo in v_slow:
                  xytext=(9, -4), ha="left", fontsize=8.5, color=C_SLOW)
 ax2.set_title("Потеря на отложенном срезе", fontsize=11.5, color=INK, pad=10)
 ax2.set_xlabel("шаг оптимизатора", fontsize=9.5, color=MUTED)
-ax2.set_xlim(60, 3150)
+ax2.set_xlim(60, 5400)
 
 ticks = [0.23, 0.25, 0.28, 0.32, 0.36, 0.42, 0.48, 0.55]
 for ax in (ax1, ax2):
