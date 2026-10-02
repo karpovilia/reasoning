@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "reasoning-control"
+version = "1.0.0"
+description = "Event-span detection and action selection for language-model reasoning"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+dependencies = ["numpy==1.26.4", "scipy==1.14.1", "scikit-learn==1.6.1", "torch==2.9.1"]
+
+[project.optional-dependencies]
+data = ["zstandard>=0.23,<1", "jsonschema>=4.23,<5"]
+test = ["pytest>=8,<10"]
+tokenization = ["tokenizers==0.22.2"]
+
+[project.scripts]
+reasoning-detector = "reasoning_control.detector:main"
+reasoning-gate = "reasoning_control.gate:main"
+reasoning-data = "reasoning_control.data:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

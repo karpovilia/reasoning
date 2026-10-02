@@ -1,0 +1,1 @@
+{"key": "illustrative-prefix", "now": 80, "prompt_tokens": 50, "confidence": 0.7, "segments": [{"text": "We need to compute 12 times 13.", "token_start": 0, "token_end": 10, "available_at": 11}, {"text": "12 times 13 equals 156.", "token_start": 11, "token_end": 20, "available_at": 21}]}

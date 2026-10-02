@@ -1,0 +1,98 @@
+{
+  "files": [
+    {
+      "destination": "training/gate/observer.jsonl",
+      "source": "internal_signals_poc/gate_trainval_2026_09_25/main_inputs/observer.jsonl",
+      "sha256": "1a6f568bdc90416edb01f43a0dfac9b47e755118e417fa3aaf468a0ddf9de1da",
+      "bytes": 986889,
+      "published": false
+    },
+    {
+      "destination": "training/gate/confidence.jsonl",
+      "source": "internal_signals_poc/gate_trainval_2026_09_25/main_inputs/confidence.jsonl",
+      "sha256": "5d91e59e1a812e3e515b8a29d33941a2653e25df28dc1347ec99374ed4c885f7",
+      "bytes": 20276,
+      "published": false
+    },
+    {
+      "destination": "training/gate/labels.jsonl",
+      "source": "internal_signals_poc/gate_trainval_2026_09_25/main_inputs/labels.jsonl",
+      "sha256": "9442f5b5184fe16166974b0ce84c3f8c9d7ec6375c7a0ca3a7e744e67b9f1c1a",
+      "bytes": 907013,
+      "published": false
+    },
+    {
+      "destination": "training/gate/ended_population.jsonl",
+      "source": "internal_signals_poc/gate_trainval_2026_09_25/main_inputs/ended_population.jsonl",
+      "sha256": "0d4deee0cc0f06571dee072b7f5b1038598b3de1c4d327367f2308aacfdeeeb3",
+      "bytes": 27387,
+      "published": false
+    },
+    {
+      "destination": "training/gate/PROVENANCE.json",
+      "source": "internal_signals_poc/gate_trainval_2026_09_25/main_inputs/PROVENANCE.json",
+      "sha256": "4631a55d2b9871d2f4b0a82b359a8a8af7ff253ae0cc206d90bbce4c4658f9b7",
+      "bytes": 48024,
+      "published": false
+    },
+    {
+      "destination": "calibration/PROTOCOL.md",
+      "source": "internal_signals_poc/gate_independent_2026_09_25/PROTOCOL.md",
+      "sha256": "47bf056c165d67d036ac7d4aa8a7a1fa04422b7327f034c9e8df4f2ee68c632d",
+      "bytes": 14639,
+      "published": false
+    },
+    {
+      "destination": "calibration/validation_content_v2/records.jsonl",
+      "source": "internal_signals_poc/gate_independent_2026_09_25/validation_content_v2/records.jsonl",
+      "sha256": "16bd66383bcc43e0baec684a2709daea310fee713d147becba09cdc98a3b3e6f",
+      "bytes": 3391527,
+      "published": false
+    },
+    {
+      "destination": "calibration/observer_cpu_results_v1/predictions_timings.jsonl",
+      "source": "internal_signals_poc/gate_independent_2026_09_25/observer_cpu_results_v1/predictions_timings.jsonl",
+      "sha256": "57b05af5939ae90c2ae6af9c99fd7705dda0e193fd45ba6117c591a62f73f5dc",
+      "bytes": 876410,
+      "published": false
+    },
+    {
+      "destination": "calibration/prompt_budget_v1/validation_predictions.jsonl",
+      "source": "internal_signals_poc/gate_independent_2026_09_25/prompt_budget_v1/validation_predictions.jsonl",
+      "sha256": "764a8d6edcab0585bdd737b8e4f816bb38bfc0cc4ea12168aa5e8b0fac9c4389",
+      "bytes": 7031,
+      "published": false
+    },
+    {
+      "destination": "calibration/prompt_runtime_check_v1.json",
+      "source": "internal_signals_poc/gate_independent_2026_09_25/prompt_runtime_check_v1.json",
+      "sha256": "4ee29c1ecab9fb4d3a070b149f5d20dd659f20c36c764332b32cb927ff57687f",
+      "bytes": 2681,
+      "published": false
+    }
+  ],
+  "detector": {
+    "source": "internal_signals_poc/event_span_model_audit_2026_09_24/outputs/data_v1/prepared.pkl",
+    "destination": "training/detector/traces.jsonl.gz",
+    "folds": [
+      1,
+      2
+    ],
+    "preserve_source_order": true,
+    "unknown_span": -1,
+    "unknown_events": "event_known=false"
+  },
+  "gate": {
+    "active_prefixes": 104,
+    "prefixes_by_fold": {
+      "3": 78,
+      "4": 26
+    },
+    "action_rows": 1040,
+    "unknown_content_correct": 8,
+    "correctness_field": "content_correct",
+    "cost_field": "additional_tokens",
+    "early_ended_action_rows": 32,
+    "early_ended_questions": 16
+  }
+}

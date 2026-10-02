@@ -1,0 +1,31 @@
+{
+  "name": "counts__a3",
+  "fallback_action": "continue_2048",
+  "controller_kind": "observer",
+  "variant": "counts",
+  "weights": "models/gate/counts_mlp_s27.pt",
+  "price": 0.002511886431509582,
+  "converter": {
+    "coefficients": [
+      0.0,
+      0.02394798261259963,
+      0.0
+    ],
+    "features": [
+      "intercept",
+      "predicted_tokens",
+      "available_prompt_tokens"
+    ],
+    "unit": "seconds",
+    "fit": "nonnegative least squares on validation observed runtime",
+    "fit_mae_seconds": 0.5287284831573765
+  },
+  "selected_feasible": true,
+  "allowed_actions": [
+    "stop",
+    "continue_512",
+    "continue_2048"
+  ],
+  "needs_confidence": true,
+  "needs_structure": true
+}

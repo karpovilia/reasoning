@@ -1,0 +1,1 @@
+{"key": "synthetic-observation", "now": 80, "prompt_tokens": 50, "confidence": 0.7, "confidence_available_at": 80, "segments": [{"token_start": 0, "token_end": 35, "available_at": 40, "events": [0.1, 0.2, 0.1, 0.4, 0.1, 0.1], "span": 1}, {"token_start": 35, "token_end": 75, "available_at": 80, "events": [0.1, 0.3, 0.1, 0.5, 0.1, 0.7], "span": 5}]}

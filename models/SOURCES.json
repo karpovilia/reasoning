@@ -1,0 +1,82 @@
+{
+  "code": [
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/features.py",
+      "source_sha256": "1463e220bc3fc4f70c8003cf4d75c54cde5afa95d250d606411143f7ec915d5b",
+      "destination": "src/reasoning_control/gate_runtime/features.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/models.py",
+      "source_sha256": "b4a51619ad8480e7a72373a81e7e52b637cf7865b155ac80921c9adddc369ac4",
+      "destination": "src/reasoning_control/gate_runtime/models.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/training.py",
+      "source_sha256": "8917d2e03b623dea825266bf9e4d491416d4f9ee5c38caeb5f6809cf72bbec9c",
+      "destination": "src/reasoning_control/gate_runtime/training.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/labels.py",
+      "source_sha256": "b4db8c03c2d9f7d0adc308eb371344f0e41bfb8053229da1e342c4281f76207f",
+      "destination": "src/reasoning_control/gate_runtime/labels.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/policy.py",
+      "source_sha256": "94c85f1ffe75b65ef026442485bd077029f6680554cc9f7d9dacd0dd951b16d8",
+      "destination": "src/reasoning_control/gate_runtime/policy.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/controller.py",
+      "source_sha256": "5b396a15c8c8d193409313b30b6b0b3e4b412fc06aab5bb04db61649755b7218",
+      "destination": "src/reasoning_control/gate_runtime/controller.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/fit_pilot.py",
+      "source_sha256": "b4abb53bd6a079ac79ccae663d6fd28a8bc8f1d440a8d8c7fc34b50959833c38",
+      "destination": "src/reasoning_control/gate_runtime/fit_pilot.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/runtime/prompt_budget.py",
+      "source_sha256": "98f4782cb1dc2b6c1af1679158643f78ffa9061f98b145a4c42539392c8f287d",
+      "destination": "src/reasoning_control/gate_runtime/prompt_budget.py",
+      "changes": "package-relative imports; training entrypoint docstring"
+    },
+    {
+      "source": "internal_signals_poc/gate_independent_2026_09_25/calibrate_seconds.py",
+      "source_sha256": "e495bb3643cc6f5b46870e889346ce8f6fc99388eba7238e442c435b8f4c5be3",
+      "destination": "src/reasoning_control/calibrate_gate.py",
+      "changes": "explicit CLI paths and package-relative imports; selection calculations unchanged"
+    },
+    {
+      "source": "internal_signals_poc/lora_judge_2026_08_15/src/train_lora.py",
+      "source_sha256": "fc0c39fd223076cfb20078ee0b10e154da2abee3bd5fdb2aeaee9239b35b4f42",
+      "destination": "src/reasoning_control/train_annotator.py",
+      "changes": "unchanged training implementation; refuse an existing output directory; model architecture also read from config for locally renamed base snapshots"
+    },
+    {
+      "source": "internal_signals_poc/lora_judge_2026_08_15/src/merge_lora_direct.py",
+      "source_sha256": "b554f97b1d0db0b2e5deeb72466a152a4dd8b26ccd241ff4178a11df16786b0f",
+      "destination": "tools/release/merge_annotator.py",
+      "changes": "portable module docstring; refuse an existing output directory"
+    },
+    {
+      "source": "internal_signals_poc/event_confirmation_lag_2026_09_01/src/event_confirmation_lag/segmentation.py",
+      "source_sha256": "7b2f551453d3b6d54317094570dfbb7b113e9c591f5379cc82501e7a674dd9c5",
+      "destination": "src/reasoning_control/segmentation.py",
+      "changes": "trailing blank line removed; implementation unchanged"
+    }
+  ],
+  "weights_source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/weights",
+  "detector_source": "internal_signals_poc/gate_independent_2026_09_25/test_batch001_package_v2/detector/detector_fold0.pkl",
+  "annotator_source": "internal_signals_poc/student_splits_2026_08_20/adapters/ckpt_022000",
+  "annotator_config_change": "base_model_name_or_path is a model id instead of a machine-local path; weights unchanged",
+  "detector_training_source": "internal_signals_poc/event_span_model_audit_2026_09_24/audit.py",
+  "detector_training_source_sha256": "073e0afbfca26d1e91715693a1c7358ff9890b6f09ba2c330a712cda034a88f8"
+}

@@ -11,7 +11,7 @@ ROOT   := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 PY     ?= python3
 BRANCH ?= main
 
-.PHONY: check docs registry leaks init fetch strict push help
+.PHONY: check docs registry leaks release test init fetch strict push help
 
 help:
 	@echo "make check   проверки целостности репозитория"
@@ -21,7 +21,7 @@ help:
 	@echo "make strict  строгие проверки, требуются все эталоны и все пути"
 	@echo "make push    протолкнуть ветку $(BRANCH) в основной удалённый адрес"
 
-check: docs registry leaks
+check: docs registry leaks release
 	@echo "проверки пройдены"
 
 docs:
@@ -32,6 +32,12 @@ registry:
 
 leaks:
 	@$(PY) $(ROOT)tools/check_no_leaks.py
+
+release:
+	@$(PY) $(ROOT)tools/release/check_release.py
+
+test:
+	@PYTHONPATH=$(ROOT)src $(PY) -m unittest discover -s $(ROOT)tests -v
 
 strict:
 	@$(PY) $(ROOT)tools/build_docs_index.py --check

@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "run_id": "native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42",
+  "benchmark": "bbh",
+  "solver": {
+    "seed": 42,
+    "vllm": "0.24.0",
+    "dtype": "auto",
+    "prompt_mode": "user",
+    "family": "think",
+    "tensor_parallel": null,
+    "tp": 1,
+    "template_kwargs": null,
+    "effort_default": null,
+    "model": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+    "revision": "916b56a44061fd5cd7d6a8fb632557ed4f724f60",
+    "temperature": 0.0,
+    "top_p": null,
+    "top_k": null,
+    "reasoning_limit": 8192,
+    "answer_limit": 512,
+    "source_manifest": "reasoning_trajectories/native_po_2026_08_11/r1_distill_qwen_7b/r1_distill_qwen_7b__manifest.json",
+    "source_trace_file": "reasoning_trajectories/native_po_2026_08_11/r1_distill_qwen_7b/r1_distill_qwen_7b__cap8192__none.jsonl",
+    "unknown_settings": [
+      "resolved top_p",
+      "resolved top_k"
+    ]
+  },
+  "annotations": [
+    {
+      "annotation_run_id": "deepseek-chat",
+      "model": "deepseek-chat",
+      "records": 69,
+      "parameter_variants": [
+        {
+          "judge_model": "deepseek-chat",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 8192,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": null,
+          "labeler_model_actual": null,
+          "prompt_sha256": null,
+          "script_sha256": null,
+          "git_revision": null,
+          "chunk_params": null
+        }
+      ],
+      "human_gold": false,
+      "context": "retrospective full trace",
+      "acceptance": "structural audit required on export; repaired source annotations retained as a separate provenance layer"
+    },
+    {
+      "annotation_run_id": "deepseek-reasoner",
+      "model": "deepseek-reasoner",
+      "records": 69,
+      "parameter_variants": [
+        {
+          "judge_model": "deepseek-reasoner",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 32000,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": "deepseek-reasoner",
+          "labeler_model_actual": "deepseek-v4-flash",
+          "prompt_sha256": "c489fc0522f5dc7571f83a26b3b56c984b9783c606afb9d454cc5d2ed1d923ff",
+          "script_sha256": "512176d4509d1aff91f881f6884d3077bce4f940a21de69438924d9ed1ffdd2c",
+          "git_revision": {
+            "docs": "a96c8bffd3f3d3293912c5ca68b0f08546489e8d",
+            "note": "internal_signals_poc вне git"
+          },
+          "chunk_params": {
+            "chunk": 30,
+            "ctx": 15,
+            "min_window": 4,
+            "max_tokens": 32000,
+            "temperature": 0.6,
+            "api_calls": 1,
+            "window_splits": 0,
+            "finish_reasons": {
+              "stop": 1
+            }
+          }
+        },
+        {
+          "judge_model": "deepseek-reasoner",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 32000,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": "deepseek-reasoner",
+          "labeler_model_actual": "deepseek-v4-flash",
+          "prompt_sha256": "c489fc0522f5dc7571f83a26b3b56c984b9783c606afb9d454cc5d2ed1d923ff",
+          "script_sha256": "512176d4509d1aff91f881f6884d3077bce4f940a21de69438924d9ed1ffdd2c",
+          "git_revision": {
+            "docs": "a96c8bffd3f3d3293912c5ca68b0f08546489e8d",
+            "note": "internal_signals_poc вне git"
+          },
+          "chunk_params": {
+            "chunk": 30,
+            "ctx": 15,
+            "min_window": 4,
+            "max_tokens": 32000,
+            "temperature": 0.6,
+            "api_calls": 2,
+            "window_splits": 0,
+            "finish_reasons": {
+              "stop": 2
+            }
+          }
+        },
+        {
+          "judge_model": "deepseek-reasoner",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 32000,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": "deepseek-reasoner",
+          "labeler_model_actual": "deepseek-v4-flash",
+          "prompt_sha256": "c489fc0522f5dc7571f83a26b3b56c984b9783c606afb9d454cc5d2ed1d923ff",
+          "script_sha256": "512176d4509d1aff91f881f6884d3077bce4f940a21de69438924d9ed1ffdd2c",
+          "git_revision": {
+            "docs": "a96c8bffd3f3d3293912c5ca68b0f08546489e8d",
+            "note": "internal_signals_poc вне git"
+          },
+          "chunk_params": {
+            "chunk": 30,
+            "ctx": 15,
+            "min_window": 4,
+            "max_tokens": 32000,
+            "temperature": 0.6,
+            "api_calls": 4,
+            "window_splits": 0,
+            "finish_reasons": {
+              "stop": 4
+            }
+          }
+        },
+        {
+          "judge_model": "deepseek-reasoner",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 32000,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": "deepseek-reasoner",
+          "labeler_model_actual": "deepseek-v4-flash",
+          "prompt_sha256": "c489fc0522f5dc7571f83a26b3b56c984b9783c606afb9d454cc5d2ed1d923ff",
+          "script_sha256": "512176d4509d1aff91f881f6884d3077bce4f940a21de69438924d9ed1ffdd2c",
+          "git_revision": {
+            "docs": "a96c8bffd3f3d3293912c5ca68b0f08546489e8d",
+            "note": "internal_signals_poc вне git"
+          },
+          "chunk_params": {
+            "chunk": 30,
+            "ctx": 15,
+            "min_window": 4,
+            "max_tokens": 32000,
+            "temperature": 0.6,
+            "api_calls": 3,
+            "window_splits": 0,
+            "finish_reasons": {
+              "stop": 3
+            }
+          }
+        },
+        {
+          "judge_model": "deepseek-reasoner",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 32000,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": "deepseek-reasoner",
+          "labeler_model_actual": "deepseek-v4-flash",
+          "prompt_sha256": "c489fc0522f5dc7571f83a26b3b56c984b9783c606afb9d454cc5d2ed1d923ff",
+          "script_sha256": "512176d4509d1aff91f881f6884d3077bce4f940a21de69438924d9ed1ffdd2c",
+          "git_revision": {
+            "docs": "a96c8bffd3f3d3293912c5ca68b0f08546489e8d",
+            "note": "internal_signals_poc вне git"
+          },
+          "chunk_params": {
+            "chunk": 30,
+            "ctx": 15,
+            "min_window": 4,
+            "max_tokens": 32000,
+            "temperature": 0.6,
+            "api_calls": 6,
+            "window_splits": 0,
+            "finish_reasons": {
+              "stop": 6
+            }
+          }
+        },
+        {
+          "judge_model": "deepseek-reasoner",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 32000,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": "deepseek-reasoner",
+          "labeler_model_actual": "deepseek-v4-flash",
+          "prompt_sha256": "c489fc0522f5dc7571f83a26b3b56c984b9783c606afb9d454cc5d2ed1d923ff",
+          "script_sha256": "512176d4509d1aff91f881f6884d3077bce4f940a21de69438924d9ed1ffdd2c",
+          "git_revision": {
+            "docs": "a96c8bffd3f3d3293912c5ca68b0f08546489e8d",
+            "note": "internal_signals_poc вне git"
+          },
+          "chunk_params": {
+            "chunk": 30,
+            "ctx": 15,
+            "min_window": 4,
+            "max_tokens": 32000,
+            "temperature": 0.6,
+            "api_calls": 7,
+            "window_splits": 0,
+            "finish_reasons": {
+              "stop": 7
+            }
+          }
+        },
+        {
+          "judge_model": "deepseek-reasoner",
+          "backend": "deepseek-api",
+          "temperature": 0.6,
+          "max_tokens": 32000,
+          "operators": [
+            "SETUP",
+            "DERIVING",
+            "EXPLORING",
+            "VERIFYING",
+            "REVISING",
+            "CONCLUDING"
+          ],
+          "labeler_model_requested": "deepseek-reasoner",
+          "labeler_model_actual": "deepseek-v4-flash",
+          "prompt_sha256": "c489fc0522f5dc7571f83a26b3b56c984b9783c606afb9d454cc5d2ed1d923ff",
+          "script_sha256": "512176d4509d1aff91f881f6884d3077bce4f940a21de69438924d9ed1ffdd2c",
+          "git_revision": {
+            "docs": "a96c8bffd3f3d3293912c5ca68b0f08546489e8d",
+            "note": "internal_signals_poc вне git"
+          },
+          "chunk_params": {
+            "chunk": 30,
+            "ctx": 15,
+            "min_window": 4,
+            "max_tokens": 32000,
+            "temperature": 0.6,
+            "api_calls": 5,
+            "window_splits": 0,
+            "finish_reasons": {
+              "stop": 5
+            }
+          }
+        }
+      ],
+      "human_gold": false,
+      "context": "retrospective full trace",
+      "acceptance": "structural audit required on export; repaired source annotations retained as a separate provenance layer"
+    }
+  ],
+  "trace_count": 69,
+  "publication_status": "structure_only",
+  "trace_file": "traces.jsonl.gz",
+  "annotation_file_pattern": "annotations/{annotation_run_id}/labels.jsonl.gz",
+  "download_url": null
+}

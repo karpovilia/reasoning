@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "release": "2026-10-02",
+  "publication_status": "structure_only",
+  "trace_bodies_published": false,
+  "annotation_bodies_published": false,
+  "download_url": null,
+  "runs": [
+    {
+      "run_id": "native-matched-8models/bbh/openai/gpt-oss-20b/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/openai/gpt-oss-20b/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/openai/gpt-oss-20b/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/openai/gpt-oss-20b/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/openai/gpt-oss-20b/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/openai/gpt-oss-20b/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/openai/gpt-oss-20b/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/openai/gpt-oss-20b/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/openai/gpt-oss-20b/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/bbh/openai/gpt-oss-120b/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/openai/gpt-oss-120b/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/openai/gpt-oss-120b/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/openai/gpt-oss-120b/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/openai/gpt-oss-120b/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/openai/gpt-oss-120b/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/openai/gpt-oss-120b/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/openai/gpt-oss-120b/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/openai/gpt-oss-120b/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/bbh/Qwen/Qwen3-4B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/Qwen/Qwen3-4B/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/Qwen/Qwen3-4B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/Qwen/Qwen3-4B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/Qwen/Qwen3-4B/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/Qwen/Qwen3-4B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/Qwen/Qwen3-4B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/Qwen/Qwen3-4B/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/Qwen/Qwen3-4B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/bbh/Qwen/Qwen3-8B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/Qwen/Qwen3-8B/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/Qwen/Qwen3-8B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/Qwen/Qwen3-8B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/Qwen/Qwen3-8B/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/Qwen/Qwen3-8B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/Qwen/Qwen3-8B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/Qwen/Qwen3-8B/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/Qwen/Qwen3-8B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Qwen-7B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Llama-8B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/deepseek-ai/DeepSeek-R1-Distill-Llama-70B/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/bbh/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/bbh/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42/run.json",
+      "trace_count": 69,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/bbh/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/gpqa_diamond/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/gpqa_diamond/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42/run.json",
+      "trace_count": 17,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/gpqa_diamond/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42"
+    },
+    {
+      "run_id": "native-matched-8models/math500/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42",
+      "config": "runs/native-matched-8models/math500/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42/run.json",
+      "trace_count": 59,
+      "local_directory": "data/corpora/release-20261002/native-matched-8models/math500/Qwen/Qwen3.5-122B-A10B-FP8/t000+think8192+seed42"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909"
+    },
+    {
+      "run_id": "repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010",
+      "config": "runs/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010/run.json",
+      "trace_count": 90,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/aime/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909"
+    },
+    {
+      "run_id": "repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010",
+      "config": "runs/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010/run.json",
+      "trace_count": 198,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/gpqa_diamond/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed101"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed202"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed303"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed404"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed505"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed606"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed707"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed808"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed909"
+    },
+    {
+      "run_id": "repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010",
+      "config": "runs/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010/run.json",
+      "trace_count": 500,
+      "local_directory": "data/corpora/release-20261002/repeated-solving/math500/Qwen/Qwen3-4B-Thinking-2507/t100+top_p100+top_k-off+think16384+answer2048+seed1010"
+    },
+    {
+      "run_id": "large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-low+limit98304+seed42",
+      "config": "runs/large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-low+limit98304+seed42/run.json",
+      "trace_count": 2158,
+      "local_directory": "data/corpora/release-20261002/large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-low+limit98304+seed42"
+    },
+    {
+      "run_id": "large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-high+limit98304+seed42",
+      "config": "runs/large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-high+limit98304+seed42/run.json",
+      "trace_count": 2158,
+      "local_directory": "data/corpora/release-20261002/large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-high+limit98304+seed42"
+    },
+    {
+      "run_id": "large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-max+limit98304+seed42",
+      "config": "runs/large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-max+limit98304+seed42/run.json",
+      "trace_count": 2158,
+      "local_directory": "data/corpora/release-20261002/large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-max+limit98304+seed42"
+    }
+  ],
+  "summary": {
+    "native": {
+      "traces": 1160,
+      "by_benchmark": {
+        "bbh": 552,
+        "gpqa_diamond": 136,
+        "math500": 472
+      },
+      "annotation_layers": {
+        "deepseek-chat": 1160,
+        "deepseek-reasoner": 1015
+      }
+    },
+    "repeated": {
+      "traces": 7880,
+      "by_benchmark": {
+        "math500": 5000,
+        "gpqa_diamond": 1980,
+        "aime": 900
+      },
+      "annotation_audit": {
+        "natural": 926,
+        "empty_answer": 5,
+        "eos_without_close": 5,
+        "grade_timeout": 0,
+        "censored": 214,
+        "blocks": 32900,
+        "duplicate_events": 32,
+        "span_gap_segments": 2267,
+        "span_overlap_segments": 1,
+        "invalid_or_outside_events": 1690,
+        "invalid_spans": 4641,
+        "unparsed_blocks": 95,
+        "traces": 1140,
+        "questions": 114,
+        "intervals": 21374,
+        "segments": 453094,
+        "unknown_event_segments": 1311,
+        "unknown_span_segments": 3579
+      },
+      "fold_questions": {
+        "0": 24,
+        "1": 23,
+        "2": 23,
+        "3": 22,
+        "4": 22
+      }
+    },
+    "large_model": {
+      "traces": 6474,
+      "complete_annotated": 209,
+      "partially_or_fully_labeled": 949,
+      "quality_review_required_event_types": [
+        "failed_attempt"
+      ]
+    },
+    "gate_training": {
+      "active_prefixes": 104,
+      "prefixes_by_fold": {
+        "3": 78,
+        "4": 26
+      },
+      "action_rows": 1040,
+      "unknown_content_correct": 8,
+      "correctness_field": "content_correct",
+      "cost_field": "additional_tokens",
+      "early_ended_action_rows": 32,
+      "early_ended_questions": 16
+    }
+  }
+}

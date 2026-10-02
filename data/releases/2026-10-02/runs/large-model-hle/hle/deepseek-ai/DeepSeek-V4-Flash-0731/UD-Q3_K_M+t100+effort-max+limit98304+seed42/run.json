@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "run_id": "large-model-hle/hle/deepseek-ai/DeepSeek-V4-Flash-0731/UD-Q3_K_M+t100+effort-max+limit98304+seed42",
+  "benchmark": "hle",
+  "solver": {
+    "reasoning_effort": "max",
+    "seed": 42,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "max_tokens": 98304,
+    "stream": false,
+    "model": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "revision": null,
+    "quantization": "UD-Q3_K_M",
+    "engine_mode": "dspark",
+    "server_model_id": "deepseek-v4-flash-0731-q3-dspark-production",
+    "source_trace_file": "data/minio/get_thinking_traces/raw_reasoning_trajectories/deepseek-v4-flash-0731-q3/hle__effort-max__seed-42.jsonl",
+    "unknown_settings": [
+      "server model weight revision",
+      "separate native reasoning token offsets"
+    ]
+  },
+  "annotations": [
+    {
+      "annotation_run_id": "DeepSeek-V4-Flash+NVFP4+t000+grounded-events-v4.6",
+      "model": "local-deepseek-v4-flash",
+      "quantization": "NVFP4",
+      "revision": null,
+      "protocol": "grounded-events-v4.6",
+      "temperature": 0,
+      "max_tokens": 6144,
+      "thinking": false,
+      "left_context_segments": 15,
+      "right_context_segments": 0,
+      "chunk_segments": 30,
+      "complete_traces": 67,
+      "partially_or_fully_labeled_traces": 317,
+      "human_gold": false,
+      "quality_review_required_event_types": [
+        "failed_attempt"
+      ],
+      "system_prompt_sha256": "45bb4925755801e23f16ec7a485f140fde661625669c9bdd514089db5e8e5654",
+      "status": "structural coverage only; semantic quality review remains required"
+    }
+  ],
+  "trace_count": 2158,
+  "publication_status": "structure_only",
+  "trace_file": "traces.jsonl.gz",
+  "annotation_file_pattern": "annotations/{annotation_run_id}/labels.jsonl.gz",
+  "download_url": null
+}

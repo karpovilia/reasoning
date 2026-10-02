@@ -17,3 +17,10 @@ __pycache__/
 # Временное.
 *.tmp
 *.swp
+
+# Результаты обучения и сборки пакета.
+/outputs/
+/build/
+/dist/
+*.egg-info/
+.pytest_cache/

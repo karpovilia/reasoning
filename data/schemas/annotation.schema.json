@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "annotation.schema.json",
+  "title": "annotation",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "annotation_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "reasoning_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "annotation_run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "accepted",
+        "partial",
+        "quarantined"
+      ]
+    },
+    "human_gold": {
+      "type": "boolean"
+    },
+    "lo": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "hi": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "context_lo": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "context_hi": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "available_at_char": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "available_at_token": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "seg_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "type": {
+            "enum": [
+              "backtrack",
+              "verify",
+              "branch",
+              "subgoal_done",
+              "failed_attempt",
+              "commit"
+            ]
+          }
+        },
+        "required": [
+          "seg_id",
+          "type"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "spans": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "seg_start": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "seg_end": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "type": {
+            "enum": [
+              "SETUP",
+              "DERIVING",
+              "EXPLORING",
+              "VERIFYING",
+              "REVISING",
+              "CONCLUDING",
+              "GROUNDING"
+            ]
+          }
+        },
+        "required": [
+          "seg_start",
+          "seg_end",
+          "type"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string",
+          "minLength": 1
+        },
+        "file_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "record_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "line": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "file",
+        "file_sha256",
+        "record_sha256",
+        "line"
+      ],
+      "additionalProperties": true
+    },
+    "quality_flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "annotation_id",
+    "trace_id",
+    "reasoning_sha256",
+    "annotation_run_id",
+    "status",
+    "human_gold",
+    "lo",
+    "hi",
+    "context_lo",
+    "context_hi",
+    "available_at_char",
+    "available_at_token",
+    "events",
+    "spans",
+    "source",
+    "quality_flags"
+  ],
+  "additionalProperties": true
+}

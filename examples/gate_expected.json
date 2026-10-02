@@ -1,0 +1,40 @@
+{
+  "policy": "counts_spans",
+  "variant": "counts_spans",
+  "architecture": "gru",
+  "feature_version": "eventseq_ablation_v2",
+  "cost_unit": "seconds",
+  "price_per_cost_unit": 0.005011872336272725,
+  "actions": [
+    "stop",
+    "continue_512",
+    "continue_2048",
+    "verify_512",
+    "neutral_512"
+  ],
+  "action": "stop",
+  "p_success": [
+    0.9907553791999817,
+    0.9954243302345276,
+    0.9899976849555969,
+    0.9863362312316895,
+    0.9945458173751831
+  ],
+  "cost": [
+    4.749514273606452,
+    13.964990389790358,
+    9.579021298948728,
+    8.924907674623876,
+    13.363145313087287
+  ],
+  "utility": 0.966951420001361,
+  "fallback": false,
+  "reason": null,
+  "predicted_additional_tokens": [
+    198.32627868652344,
+    583.1384887695312,
+    399.9928283691406,
+    372.67889404296875,
+    558.0071411132812
+  ]
+}

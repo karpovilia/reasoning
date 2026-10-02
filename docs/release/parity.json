@@ -1,0 +1,11 @@
+{
+  "gate_configs": 62,
+  "private_gate_observations": 104,
+  "synthetic_gate_observations": 1,
+  "gate_decisions_identical": 6510,
+  "detector_contexts_identical": 580,
+  "parameter_count_primary_gate": 28234,
+  "feature_width": 40,
+  "active_features_primary_gate": 28,
+  "comparison": "exact equality against frozen source runtime and unchanged checkpoint bytes; no dataset text or question ids exported"
+}
