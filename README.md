@@ -61,6 +61,6 @@ python -m reasoning_control.data validate \
 
 ## Предыдущие материалы
 
-Каталоги [experiments](experiments), [docs/reports](docs/reports), [docs/findings](docs/findings) и [papers](papers) сохраняют прежние отчёты и историю проекта. Их модели, таблицы и команды могут относиться к более ранним экспериментам. Текущий выпуск описан в `docs/release`.
+Каталоги [experiments](experiments), [docs/reports](docs/reports) и [docs/findings](docs/findings) сохраняют прежние отчёты и историю проекта. Их модели, таблицы и команды могут относиться к более ранним экспериментам. Текущий выпуск описан в `docs/release`.
 
 Старая [опись](data/registry.tsv) и `make fetch` относятся к прежнему хранилищу. Они не загружают данные выпуска от 2 октября; новый каталог не использует старые ссылки как действующие.
