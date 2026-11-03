@@ -1,17 +1,5 @@
 {
   "artifacts": {
-    "models/SOURCES.json": {
-      "bytes": 5034,
-      "sha256": "35dbfd4a9dcee3f8626d3ac953f277aca991241fc179da85fe706702d8b5a1f9"
-    },
-    "models/annotator/qwen3.6-35b-a3b-ck22000/adapter_config.json": {
-      "bytes": 1240,
-      "sha256": "aa809e42634f8905d622f8130c03e00e61e81903932909d9bbca40ef8b3b114c"
-    },
-    "models/annotator/qwen3.6-35b-a3b-ck22000/adapter_model.safetensors": {
-      "bytes": 169416416,
-      "sha256": "8ef7a0efe76529507af82be2c68b6a3a1770269e6c7b75a4a6619743cc3cd1ca"
-    },
     "models/detector/lexical-event-span-v1.pkl": {
       "bytes": 3149289,
       "sha256": "f01241df8e34d14e8c75f0d4926b51a6b7f3a4e5f218adb1216ff65a8ba09288"
@@ -193,8 +181,7 @@
       "sha256": "de117968d19eacfc3384b8c2bc3a6eba9996b884db0f3dcae0de11c3c3936260"
     }
   },
-  "primary_detector": "models/detector/lexical-event-span-v1.pkl",
-  "primary_gate_config": "configs/gate/counts_spans.json",
   "sequence_gate_config": "configs/gate/joint.json",
-  "annotation_teacher": "models/annotator/qwen3.6-35b-a3b-ck22000"
+  "baseline_detector": "models/detector/lexical-event-span-v1.pkl",
+  "baseline_gate_config": "configs/gate/counts_spans.json"
 }

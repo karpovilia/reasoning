@@ -1,0 +1,26 @@
+{
+  "namespace": 9,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "mc_paths": 32,
+  "epochs": 60,
+  "minimum_epochs": 12,
+  "patience": 8,
+  "batch_size": 8192,
+  "learning_rate": 0.003,
+  "weight_decay": 0.0001,
+  "conditions": [
+    "explicit_full_cond",
+    "explicit_full_marg",
+    "gru_cond",
+    "gru_marg",
+    "explicit_u_only_cond",
+    "explicit_reset_both_cond",
+    "explicit_current_only_cond"
+  ],
+  "selection": "TRAIN internal tune only; core uses gate and length scores, events use marginal event BCE; DEV never selects heads",
+  "source_root": "."
+}

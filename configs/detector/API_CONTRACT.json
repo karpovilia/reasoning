@@ -1,0 +1,68 @@
+{
+ "api_version": "detector_api_v1",
+ "axes": {
+  "events": [
+   "backtrack",
+   "verify",
+   "branch",
+   "subgoal_done",
+   "failed_attempt",
+   "commit"
+  ],
+  "modes": [
+   "SETUP",
+   "DERIVING",
+   "EXPLORING",
+   "VERIFYING",
+   "REVISING",
+   "CONCLUDING"
+  ]
+ },
+ "context": {
+  "future_segments": 0,
+  "max_previous_text_segments": 16,
+  "max_tokens_each_frozen_tokenizer": 2048,
+  "serialization": "question + whole previous segments + whole current segment; oldest whole segments dropped until BOTH tokenizers fit; current segment never truncated",
+  "tokenizers": [
+   "encoder (ModernBERT-base, context fit only)",
+   "lora4b (Qwen3-4B, model input)"
+  ]
+ },
+ "deployment": "the bundle directory is read-only or the process runs with PYTHONDONTWRITEBYTECODE=1: verification refuses any file not listed in the manifest, including __pycache__; one bundle per process",
+ "dynamics_prior": "diagnostic forecast from own past outputs before reading the segment; already fused into primary by the learned fusion layer",
+ "layout": {
+  "api_contract": "API_CONTRACT.json",
+  "api_root": "api",
+  "checkpoint": "checkpoint",
+  "code_root": "code",
+  "dynamics_thresholds": "calibration/dynamics_thresholds.json",
+  "limitations": "LIMITATIONS.json",
+  "provenance": "provenance.json",
+  "revision_thresholds": "calibration/revision_thresholds.json",
+  "schema": "schema.json",
+  "thresholds": "calibration/thresholds.json",
+  "tokenizers": "tokenizers"
+ },
+ "methods": {
+  "DetectorV1(manifest_path, device, verify_base=True)": "verifies every bundle file, the recomputed bundle_id, the executing API file, the imported runtime modules and the pinned base-model files",
+  "observe(completed_segment)": "exactly once per segment, in order, after the boundary is confirmed; push is the identical native name",
+  "primary_history()": "copy of immutable native +0 records of the current trace",
+  "reset(trace_id, question)": "new trace; empties segments, primary/latest records, own history and dynamics state",
+  "save_session(directory) / restore_session(directory)": "resumable state of ONE trace as immutable generations behind ACCEPTED.json; bound to bundle_id, API file SHA256 and session file SHA256; load only own trusted directories",
+  "view(end_of_trace=False)": "observational as-of spans, not resumable state; snapshot is the identical native name"
+ },
+ "not_provided": [
+  "GROUNDING or any 7th mode",
+  "END head or trace-length forecast",
+  "same-label span boundaries or semantic span ids",
+  "predictions for an unfinished current segment"
+ ],
+ "overflow": "status='overflow': current segment alone does not fit; no answer, own history reset; availability status, not an annotation mask",
+ "own_history": "detached own latest probabilities and focus representations of up to 16 previous consecutive eligible segments; reset at trace start and overflow",
+ "precision": "bf16 backbone on CUDA; heads, own-history GRU and dynamics prior float32",
+ "primary": "immutable +0 answer: 6 independent event sigmoids, 6-way mode softmax; decisions with final validation-only F1 thresholds; null decision where validation had no positives",
+ "revisions": "append-only; identity target_sid/target_sample_id/as_of_sid/as_of_sample_id/as_of_input_sha256/revision_id/lag; native horizon 1..16; exact-lag thresholds only for lags with validation calibration",
+ "sample_ids": "online ids are '<trace_id>:<sid>'; the frozen corpus uses sha256(json([trace_id,sid])); identity is the pair (trace_id, sid)",
+ "spans": "half-open [seg_start, seg_end) runs of the latest argmax mode; left/right censoring flags; last span open until a different mode or an actually observed end of trace",
+ "unknown": "UNKNOWN is target-side only. The detector always emits all probabilities; a low probability or a disabled threshold is not a known negative."
+}

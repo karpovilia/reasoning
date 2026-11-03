@@ -1,0 +1,11 @@
+{
+  "G4": {
+    "fraction_of_traces": 0.5,
+    "maximum_known_position_fraction": 0.05,
+    "auxiliary_weights": [
+      0.25,
+      0.25
+    ],
+    "selection": "unchanged main-objective natural DEV loss"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "arch": "B",
+  "cell": "CT",
+  "tf32": false,
+  "micro_batch": 1,
+  "optimizer": {
+    "adapter_lr": 0.0001,
+    "heads_lr": 0.0003,
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "clip_norm": 1.0,
+    "warmup_updates": 100,
+    "cosine_floor": 0.1
+  },
+  "model": {
+    "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+    "revision": "cdbee75f17c01a7cc42f958dc650907174af0554",
+    "dtype": "bfloat16",
+    "token_context": 8192,
+    "max_segments": 256,
+    "question_max_tokens": 1024,
+    "segment_max_tokens": 512,
+    "gradient_checkpointing": true,
+    "head_width": 512,
+    "lora": {
+      "r": 32,
+      "alpha": 64,
+      "dropout": 0.05,
+      "bias": "none",
+      "target_modules": [
+        "q_proj",
+        "k_proj",
+        "v_proj",
+        "o_proj",
+        "gate_proj",
+        "up_proj",
+        "down_proj"
+      ]
+    }
+  },
+  "effective_batch": 8,
+  "passes": 2,
+  "task_weights": {
+    "joint": 1.0,
+    "destination": 0.5,
+    "event": 0.25
+  },
+  "selection_weights": {
+    "joint": 1.0,
+    "destination": 0.5,
+    "event": 0.25
+  },
+  "checkpoint_every_updates": 3,
+  "es_input_policy": "prefix_proven_only",
+  "log_every": 1,
+  "selection_rule": "after each completed pass: DEV per-question macro mean of each term over questions with support, score = joint + 0.5 destination + 0.25 event; lowest wins, ties keep the earliest pass; TEST never read",
+  "name": "B_CT_smoke"
+}

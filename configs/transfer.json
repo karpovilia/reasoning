@@ -1,0 +1,25 @@
+{
+  "seed": 20261007,
+  "width": 512,
+  "layers": 12,
+  "heads": 8,
+  "context": 256,
+  "batch": 64,
+  "epochs": 8,
+  "lr": 0.0003,
+  "warmup_steps": 100,
+  "runtime_seconds": 21600,
+  "device": "cpu",
+  "cpu_threads": 1,
+  "variants": [
+    "transformer",
+    "transformer_no_events",
+    "transformer_no_text",
+    "summary_mlp"
+  ],
+  "encoder_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "encoder_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "encoder_batch": 256,
+  "encoder_max_tokens": 256,
+  "api_cost_usd": 0
+}

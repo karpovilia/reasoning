@@ -16,7 +16,6 @@ from reasoning_control.gate_runtime.models import load_checkpoint, save_checkpoi
 from reasoning_control.gate_runtime.policy import observation_from_dict
 from reasoning_control.gate_runtime.training import Example, aggregate_draws, fit, predict
 from reasoning_control.segmentation import segment_records
-from reasoning_control.train_annotator import target_modules_for
 
 ROOT = Path(__file__).resolve().parents[1]
 torch.set_num_threads(1)
@@ -78,13 +77,6 @@ class ReleasedModels(unittest.TestCase):
 
 
 class TrainingContracts(unittest.TestCase):
-    def test_annotator_local_snapshot_keeps_hybrid_attention(self):
-        named = target_modules_for("Qwen/Qwen3.6-35B-A3B")
-        local = target_modules_for("base_snapshot", "qwen3_5_moe")
-        self.assertEqual(local, named)
-        self.assertIn("in_proj_qkv", local)
-        self.assertIn("shared_expert.down_proj", local)
-
     def test_unknown_correctness_keeps_observed_cost(self):
         y, c, coverage = aggregate_draws([[None, True]] * 5, [[20, 30]] * 5)
         np.testing.assert_array_equal(y, np.ones(5))
@@ -152,9 +144,13 @@ class DataContracts(unittest.TestCase):
 
     def test_catalog_init_creates_no_data(self):
         with tempfile.TemporaryDirectory() as tmp:
-            count = initialize(ROOT / "data/releases/2026-10-02/catalog.json", tmp)
-            self.assertEqual(count, 57)
-            self.assertEqual(initialize(ROOT / "data/releases/2026-10-02/catalog.json", tmp), count)
+            catalog = Path(tmp) / "catalog.json"
+            config = Path(tmp) / "run.json"
+            config.write_text(json.dumps({"annotations": [{"annotation_run_id": "synthetic"}]}))
+            catalog.write_text(json.dumps({"runs": [{"run_id": "synthetic", "config": "run.json"}]}))
+            count = initialize(catalog, Path(tmp) / "layout")
+            self.assertEqual(count, 1)
+            self.assertEqual(initialize(catalog, Path(tmp) / "layout"), count)
             self.assertFalse(list(Path(tmp).rglob("*.jsonl*")))
 
     def test_unicode_and_repeated_segment_offsets(self):

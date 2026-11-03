@@ -1,0 +1,51 @@
+{
+  "binding": {
+    "config_sha256": "c6e990887333cb027ea892e63595cd105288fd7dfc389486da830a564e855023",
+    "manifest_sha256": "0a39dbcf22cc552b43357de4c762f7c403685fb45f8559cb38ffb3f3658cade0",
+    "plan_sha256": "e7ffefb95bf21ba8ad7c0e75fde7ab6befa3469acb33612451fe71c05affef63"
+  },
+  "f1": [
+    0.052618950605392456,
+    0.14033624529838562,
+    0.17441026866436005,
+    0.19436779618263245,
+    0.0838903859257698,
+    0.10230471193790436
+  ],
+  "recall70": [
+    0.029760092496871948,
+    0.08509904146194458,
+    0.1200256198644638,
+    0.13386748731136322,
+    0.054198723286390305,
+    0.048136770725250244
+  ],
+  "scope": "next-focus forecast before reading current text",
+  "selection_split": "validation",
+  "validation_support": [
+    {
+      "known": 137154,
+      "positive": 3479
+    },
+    {
+      "known": 137118,
+      "positive": 9680
+    },
+    {
+      "known": 137147,
+      "positive": 12870
+    },
+    {
+      "known": 136910,
+      "positive": 17557
+    },
+    {
+      "known": 99679,
+      "positive": 1656
+    },
+    {
+      "known": 136962,
+      "positive": 3058
+    }
+  ]
+}

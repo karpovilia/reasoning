@@ -1,0 +1,47 @@
+{
+  "arch": "A",
+  "cell": "CTES",
+  "tf32": false,
+  "micro_batch": 64,
+  "optimizer": {
+    "lr": 0.0003,
+    "weight_decay": 0.01,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "clip_norm": 1.0,
+    "warmup_updates": 100,
+    "cosine_floor": 0.1
+  },
+  "passes": 8,
+  "fit_budget_seconds": 3600,
+  "model": {
+    "width": 512,
+    "heads": 8,
+    "layers": 12,
+    "ff_width": 2048,
+    "dropout": 0.1,
+    "max_segments": 256
+  },
+  "text_encoder": "sentence-transformers/all-MiniLM-L6-v2, fixed, 256 wordpieces, mean pooling, L2, float16 cache",
+  "effective_batch": 64,
+  "task_weights": {
+    "joint": 1.0,
+    "destination": 0.5,
+    "event": 0.25
+  },
+  "selection_weights": {
+    "joint": 1.0,
+    "destination": 0.5,
+    "event": 0.25
+  },
+  "checkpoint_every_updates": 200,
+  "es_input_policy": "prefix_proven_only",
+  "log_every": 20,
+  "selection_rule": "after each completed pass on fixed natural DEV windows: native namespaces -> L[n,p] = I_joint*L_joint + 0.5*I_dest*L_dest + 0.25*I_ev*mean_known_axes(BCE) (no division by enabled components); mean over accepted namespaces available at p; mean over eligible positions of a trace; mean over traces of a question; equal mean over questions. Lowest wins, ties keep the earliest pass; TEST never read",
+  "name": "A_CTES_G3",
+  "group3": true,
+  "group": "G3_MASKED_ANNOTATION"
+}

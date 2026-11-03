@@ -1,66 +1,51 @@
-# LLM Reasoning Structure: from Analysis to Control
+# Modeling LLM Reasoning Dynamics with Structural Representations
 
-Репозиторий к работе о представлении рассуждения через события и спаны. Выпуск от 2 октября 2026 года содержит обученный детектор структуры, гейт для выбора дальнейшего действия, код их обучения и инференса, а также описание происхождения данных.
+Code accompanying the English manuscript revised on 2 November 2026.
 
-Трасса — текст рассуждения модели. Событие отмечает отдельное действие в рассуждении; спан объединяет последовательные сегменты по выполняемой функции. Гейт использует эту структуру, чтобы выбрать продолжение, проверку или завершение рассуждения.
+The implementation distinguishes three tasks: observing events and reasoning modes in a completed prefix, predicting future structure, and selecting a continuation action. T denotes text, E local events, and S spans of a reasoning mode. Retrospective annotations and prefix-only detector outputs are separate inputs.
 
-## Состав выпуска
+## Implementation
 
-- [Детектор](models/detector/lexical-event-span-v1.pkl): обученные линейные классификаторы событий и спанов; [код](src/reasoning_control/detector.py).
-- [Основной гейт Counts + spans](models/gate/counts_spans_gru_s26.pt) и его [конфигурация](configs/gate/counts_spans.json). [Вариант с последовательностью событий и спанов](configs/gate/joint.json) и остальные абляции сохранены отдельно.
-- [LoRA-разметчик Qwen3.6-35B-A3B, ck22000](models/annotator/qwen3.6-35b-a3b-ck22000/adapter_model.safetensors): адаптер модели, создававшей разметку для обучения детектора. Базовая модель загружается отдельно.
-- [Каталог данных](data/releases/2026-10-02/catalog.json): 57 конфигураций с бенчмарком, моделью решателя, настройками генерации и разметчиком. [Схемы записей](data/schemas) и [контрольные суммы источников](data/releases/2026-10-02/sources.json).
-- [Контрольные суммы моделей](models/MANIFEST.json), [происхождение кода](models/SOURCES.json), [результат сверки с исходным пакетом](docs/release/parity.json).
+- `src/ptrain`: segment Transformer and Qwen3-4B LoRA predictor; T/E/S ablations, annotation masks, question-weighted losses, training, recovery and prediction.
+- `src/clean_detectors`: causal Qwen prefix detector with recurrent memory, a jointly trained structural prior and append-only revisions.
+- `src/tes_process`: explicit event memory, semi-Markov, GRU and Neural Hawkes models; fitting, structural continuations and event-memory controls.
+- `src/reasoning_control`: lexical observation, action-value prediction, gate training, calibration and inference.
+- `src/effort_control`: fitting and calibration of the gpt-oss effort policy.
+- `src/retrieval_control`: paired answer/search continuations, prefix features, controller calibration and answer scoring.
+- `src/pfgate` and `src/gate_rebuild`: control from 29 process-forecast features and matched action-value fitting.
+- `src/structural_transfer`: held-out solver-family and benchmark evaluation.
+- `src/loop_control`: repetition heuristics and learned confirmation.
+- `configs`: model, training and annotation configurations.
+- `tests`: synthetic checks of causal masking, targets, objectives, recovery and action selection.
 
-Тексты вопросов, трасс и разметки пока не публикуются. Подготовлены каталоги и описание формата. `download_url: null` означает, что ссылки на скачивание данных ещё нет. Все примеры в [examples](examples) придуманы специально для проверки интерфейса.
+The paper-to-code mapping and commands are in [docs/usage.md](docs/usage.md). `CODE_ORIGINS.json` records the manuscript checksum and the source checksums used to prepare this distribution.
 
-## Установка и первый запуск
+## Install and check
 
-Нужны Python 3.10–3.12 и Git LFS. Проверенный интерпретатор — Python 3.12.13. Веса хранятся в LFS; обычное скачивание ZIP с исходным кодом может содержать только указатели на них.
+Use Python 3.12:
 
 ```bash
 git clone https://github.com/karpovilia/reasoning.git
 cd reasoning
-git lfs install --local
-git lfs pull
 python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install torch==2.9.1 --index-url https://download.pytorch.org/whl/cpu
-python -m pip install -e .
-python tools/release/check_release.py --weights
-mkdir -p outputs
-reasoning-gate --config configs/gate/counts_spans.json \
-  --detector models/detector/lexical-event-span-v1.pkl \
-  --input examples/pipeline.jsonl --output outputs/decision.jsonl
+python -m pip install -e '.[neural,retrieval,test]'
+git lfs install --local
+git lfs pull
+make check
+make test
 ```
 
-Команда размечает переданные завершённые сегменты, применяет гейт и записывает выбранное действие, прогноз правильности ответа и ожидаемую стоимость каждого действия. Выходной файл должен быть новым. Генерацию ответа выполняет вызывающий код; смысл действий и формат наблюдения описаны в [инструкции по инференсу](docs/release/INFERENCE.md).
-
-## Обучение и устройство моделей
-
-- [Обучение детектора, гейта и LoRA-разметчика](docs/release/TRAINING.md): входные файлы, разделение по вопросам, команды, гиперпараметры и выбор политики на валидации.
-- [Архитектура](docs/release/ARCHITECTURE.md): признаки, выходы моделей, функция потерь и правило выбора действия.
-- [Инференс](docs/release/INFERENCE.md): разметка сегментов, вызов гейта и интеграция с генератором.
-- [Зависимости](docs/release/DEPENDENCIES.md): проверенные версии и отдельное окружение для большого разметчика.
-- [Формат и подготовка данных](docs/release/DATA_FORMAT.md): нейминг, связь трассы с разметкой, координаты, неизвестные метки и локальная структура каталогов.
-- [Происхождение и границы воспроизводимости](docs/release/PROVENANCE.md).
-
-Инференс и тесты работают на приложенных весах и синтетических примерах. Для повторного обучения нужны локальные обучающие файлы из описи; их содержимое не входит в этот выпуск.
-
-## Проверки
+The included lexical-observer and GRU baseline weights use Git LFS. The large predictor checkpoints and training data are not bundled:
 
 ```bash
-make check
-make test PY=python
-python -m reasoning_control.data validate \
-  --traces examples/trace.jsonl --annotations examples/annotation.jsonl
+git lfs install --local
+git lfs pull
+python tools/release/check_release.py --weights
 ```
 
-`make check` проверяет документы, старую опись данных, новый выпуск и отсутствие текстов закрытых бенчмарков. Для полной проверки GPQA и HLE нужны локальные эталонные файлы, указанные в [CONTRIBUTING.md](CONTRIBUTING.md); без них проверка явно сообщает о пропуске. `make test` проверяет инференс, обучение на малых синтетических наборах и ограничения на входные данные.
+## Inputs and reproducibility
 
-## Предыдущие материалы
+Training and evaluation commands consume explicitly supplied local data. Raw benchmark questions, reasoning traces, annotation records and saved per-question predictions are not included. The examples are synthetic. The code preserves unknown-label masks, question-level separation and natural termination versus generation caps.
 
-Каталоги [experiments](experiments), [docs/reports](docs/reports) и [docs/findings](docs/findings) сохраняют прежние отчёты и историю проекта. Их модели, таблицы и команды могут относиться к более ранним экспериментам. Текущий выпуск описан в `docs/release`.
-
-Старая [опись](data/registry.tsv) и `make fetch` относятся к прежнему хранилищу. Они не загружают данные выпуска от 2 октября; новый каталог не использует старые ссылки как действующие.
+Tests exercise the implementation on synthetic inputs; they do not repeat full training or generation experiments. Pretrained base language models are obtained separately under their model terms. Configurations pin the revisions used by the methods.

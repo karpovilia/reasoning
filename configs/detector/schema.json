@@ -1,0 +1,419 @@
+{
+ "$defs": {
+  "decisions": {
+   "oneOf": [
+    {
+     "type": "null"
+    },
+    {
+     "additionalProperties": false,
+     "properties": {
+      "backtrack": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      },
+      "branch": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      },
+      "commit": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      },
+      "failed_attempt": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      },
+      "subgoal_done": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      },
+      "verify": {
+       "type": [
+        "boolean",
+        "null"
+       ]
+      }
+     },
+     "required": [
+      "backtrack",
+      "verify",
+      "branch",
+      "subgoal_done",
+      "failed_attempt",
+      "commit"
+     ],
+     "type": "object"
+    }
+   ]
+  },
+  "primary": {
+   "allOf": [
+    {
+     "$ref": "#/$defs/version"
+    },
+    {
+     "properties": {
+      "event_decisions": {
+       "type": "object"
+      },
+      "lag": {
+       "const": 0
+      },
+      "revision_id": {
+       "const": 0
+      }
+     }
+    }
+   ]
+  },
+  "prior": {
+   "additionalProperties": false,
+   "properties": {
+    "any_event_probability": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "as_of_sid": {
+     "minimum": -1,
+     "type": "integer"
+    },
+    "event_probabilities": {
+     "$ref": "#/$defs/probs6events"
+    },
+    "mode_probabilities": {
+     "$ref": "#/$defs/probs6modes"
+    },
+    "scope": {
+     "type": "string"
+    },
+    "target_sid": {
+     "minimum": 0,
+     "type": "integer"
+    }
+   },
+   "required": [
+    "scope",
+    "as_of_sid",
+    "target_sid",
+    "event_probabilities",
+    "mode_probabilities",
+    "any_event_probability"
+   ],
+   "type": "object"
+  },
+  "probs6events": {
+   "additionalProperties": false,
+   "properties": {
+    "backtrack": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "branch": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "commit": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "failed_attempt": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "subgoal_done": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "verify": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    }
+   },
+   "required": [
+    "backtrack",
+    "verify",
+    "branch",
+    "subgoal_done",
+    "failed_attempt",
+    "commit"
+   ],
+   "type": "object"
+  },
+  "probs6modes": {
+   "additionalProperties": false,
+   "properties": {
+    "CONCLUDING": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "DERIVING": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "EXPLORING": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "REVISING": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "SETUP": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    },
+    "VERIFYING": {
+     "maximum": 1,
+     "minimum": 0,
+     "type": "number"
+    }
+   },
+   "required": [
+    "SETUP",
+    "DERIVING",
+    "EXPLORING",
+    "VERIFYING",
+    "REVISING",
+    "CONCLUDING"
+   ],
+   "type": "object"
+  },
+  "revision": {
+   "allOf": [
+    {
+     "$ref": "#/$defs/version"
+    },
+    {
+     "properties": {
+      "lag": {
+       "minimum": 1
+      },
+      "revision_id": {
+       "minimum": 1
+      }
+     }
+    }
+   ]
+  },
+  "version": {
+   "additionalProperties": false,
+   "properties": {
+    "as_of_input_sha256": {
+     "pattern": "^[0-9a-f]{64}$",
+     "type": "string"
+    },
+    "as_of_sample_id": {
+     "type": "string"
+    },
+    "as_of_sid": {
+     "minimum": 0,
+     "type": "integer"
+    },
+    "event_decisions": {
+     "$ref": "#/$defs/decisions"
+    },
+    "event_probabilities": {
+     "$ref": "#/$defs/probs6events"
+    },
+    "lag": {
+     "maximum": 16,
+     "minimum": 0,
+     "type": "integer"
+    },
+    "mode_argmax": {
+     "enum": [
+      "SETUP",
+      "DERIVING",
+      "EXPLORING",
+      "VERIFYING",
+      "REVISING",
+      "CONCLUDING"
+     ]
+    },
+    "mode_probabilities": {
+     "$ref": "#/$defs/probs6modes"
+    },
+    "revision_id": {
+     "minimum": 0,
+     "type": "integer"
+    },
+    "target_sample_id": {
+     "type": "string"
+    },
+    "target_sid": {
+     "minimum": 0,
+     "type": "integer"
+    },
+    "thresholds_scope": {
+     "type": "string"
+    }
+   },
+   "required": [
+    "target_sid",
+    "target_sample_id",
+    "as_of_sid",
+    "as_of_sample_id",
+    "as_of_input_sha256",
+    "revision_id",
+    "lag",
+    "event_probabilities",
+    "mode_probabilities",
+    "mode_argmax",
+    "event_decisions",
+    "thresholds_scope"
+   ],
+   "type": "object"
+  }
+ },
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": false,
+ "else": {
+  "properties": {
+   "primary": {
+    "$ref": "#/$defs/primary"
+   }
+  }
+ },
+ "if": {
+  "properties": {
+   "status": {
+    "const": "overflow"
+   }
+  }
+ },
+ "properties": {
+  "api_version": {
+   "const": "detector_api_v1"
+  },
+  "bundle_id": {
+   "pattern": "^[0-9a-f]{64}$",
+   "type": "string"
+  },
+  "dynamics_prior": {
+   "oneOf": [
+    {
+     "type": "null"
+    },
+    {
+     "$ref": "#/$defs/prior"
+    }
+   ]
+  },
+  "history_reset": {
+   "type": "boolean"
+  },
+  "history_used": {
+   "items": {
+    "additionalProperties": false,
+    "properties": {
+     "as_of_sid": {
+      "minimum": 0,
+      "type": "integer"
+     },
+     "revision_id": {
+      "minimum": 0,
+      "type": "integer"
+     },
+     "sid": {
+      "minimum": 0,
+      "type": "integer"
+     }
+    },
+    "required": [
+     "sid",
+     "revision_id",
+     "as_of_sid"
+    ],
+    "type": "object"
+   },
+   "maxItems": 16,
+   "type": "array"
+  },
+  "primary": {
+   "oneOf": [
+    {
+     "type": "null"
+    },
+    {
+     "$ref": "#/$defs/primary"
+    }
+   ]
+  },
+  "revisions": {
+   "items": {
+    "$ref": "#/$defs/revision"
+   },
+   "maxItems": 16,
+   "type": "array"
+  },
+  "sid": {
+   "minimum": 0,
+   "type": "integer"
+  },
+  "status": {
+   "enum": [
+    "eligible",
+    "overflow"
+   ]
+  },
+  "trace_id": {
+   "type": "string"
+  }
+ },
+ "required": [
+  "api_version",
+  "bundle_id",
+  "trace_id",
+  "sid",
+  "status",
+  "primary",
+  "dynamics_prior",
+  "revisions",
+  "history_reset",
+  "history_used"
+ ],
+ "then": {
+  "properties": {
+   "dynamics_prior": {
+    "type": "null"
+   },
+   "history_reset": {
+    "const": true
+   },
+   "history_used": {
+    "maxItems": 0
+   },
+   "primary": {
+    "type": "null"
+   },
+   "revisions": {
+    "maxItems": 0
+   }
+  }
+ },
+ "title": "detector_api_v1 observe() output",
+ "type": "object"
+}

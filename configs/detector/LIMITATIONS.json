@@ -1,0 +1,10 @@
+[
+ "Targets are direct DeepSeek Flash/Pro annotations (Pro preferred when present, majority within teacher); no human gold labels.",
+ "One seed (20261007), one epoch, fixed final checkpoint; no seed variance.",
+ "failed_attempt has no supervision on grounded-events-v4.6 traces (known count 0 there).",
+ "Annotation covers mostly trace prefixes: unannotated tail segments are neither trained nor evaluated (test: 203434 tail segments, mostly in ~150 very long traces).",
+ "Offline evaluation restarts own history after unannotated gaps; online inference does not. Affected: 5 test traces / 2619 samples at or after the reset; impact is measured separately (GAP_AUDIT_V2_20261010.json, NATIVE_API_VALIDATION).",
+ "Old span_transformer v2 weights are not used: their train split overlaps the detector test questions.",
+ "Comparison with the plain LoRA (3 epochs, validation-selected) is a package comparison with unequal budget and selection, not an architecture ablation.",
+ "No GROUNDING mode, no END head, no same-label span boundaries; a consumer needing them requires an explicit reviewed protocol decision."
+]

@@ -1,0 +1,51 @@
+{
+  "answer_version": "immutable primary +0",
+  "binding": {
+    "config_sha256": "c6e990887333cb027ea892e63595cd105288fd7dfc389486da830a564e855023",
+    "manifest_sha256": "0a39dbcf22cc552b43357de4c762f7c403685fb45f8559cb38ffb3f3658cade0",
+    "plan_sha256": "e7ffefb95bf21ba8ad7c0e75fde7ab6befa3469acb33612451fe71c05affef63"
+  },
+  "f1": [
+    0.2568320035934448,
+    0.2436424344778061,
+    0.36840569972991943,
+    0.319121390581131,
+    0.23231014609336853,
+    0.2991051971912384
+  ],
+  "recall70": [
+    0.16344544291496277,
+    0.19072403013706207,
+    0.38676342368125916,
+    0.333720326423645,
+    0.13939638435840607,
+    0.2958398759365082
+  ],
+  "selection_split": "validation",
+  "validation_support": [
+    {
+      "known": 137154,
+      "positive": 3479
+    },
+    {
+      "known": 137118,
+      "positive": 9680
+    },
+    {
+      "known": 137147,
+      "positive": 12870
+    },
+    {
+      "known": 136910,
+      "positive": 17557
+    },
+    {
+      "known": 99679,
+      "positive": 1656
+    },
+    {
+      "known": 136962,
+      "positive": 3058
+    }
+  ]
+}

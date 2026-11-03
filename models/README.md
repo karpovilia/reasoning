@@ -1,10 +1,5 @@
-# Обученные модели
+# Included weights
 
-Веса доступны через Git LFS. Скачивание: `git lfs pull`. Контрольные суммы и размеры находятся в [MANIFEST.json](MANIFEST.json).
+`MANIFEST.json` pins the included lexical observer and GRU/MLP action-value baselines. Their architecture and preprocessing are implemented in `reasoning_control`. They are not weights of the segment Transformer, Qwen predictor or recurrent prefix detector.
 
-- [Лексический детектор](detector/lexical-event-span-v1.pkl): HashingVectorizer, шесть логистических классификаторов событий и классификатор спана. Обучение на частях 1 и 2 аудита повторных решений Qwen3-4B. [Инструкция](../docs/release/TRAINING.md).
-- [Основной гейт](gate/counts_spans_gru_s26.pt): Counts + spans, GRU с одной агрегированной записью, ширина 64, 28 234 параметра. [Конфигурация](../configs/gate/counts_spans.json) задаёт цену действия и пересчёт токенов во время.
-- [Последовательный вариант](../configs/gate/joint.json): сохраняет порядок событий и спанов. Его веса и остальные абляции лежат в `gate`; соседние JSON содержат метаданные обучения.
-- [LoRA-разметчик](annotator/qwen3.6-35b-a3b-ck22000/adapter_model.safetensors): база Qwen/Qwen3.6-35B-A3B, ревизия `995ad96eacd98c81ed38be0c5b274b04031597b0`, ранг 32, alpha 64, dropout 0.05. Сохранённая точка после 22 000 обучающих примеров. Нужна базовая модель; веса адаптера сами по себе не являются полным разметчиком.
-
-Веса перенесены из ранее проведённых экспериментов без переобучения. Источники перечислены в [SOURCES.json](SOURCES.json). Данные обучения пока не опубликованы. Условия использования исходных базовых моделей продолжают действовать; этот выпуск не задаёт новую лицензию за их правообладателей.
+Use `git lfs pull` to materialize these files, then `make weights` to verify them. Large-model training and inference require a checkpoint supplied explicitly by the caller. Base pretrained model revisions are specified in `configs`.
