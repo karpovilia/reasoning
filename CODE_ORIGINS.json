@@ -31,7 +31,11 @@
       "source_name": "README.md",
       "source_git_commit": "80a2169d17221f4e95197cd8011d7ec4127ae13f",
       "source_sha256": "d7b3f3e2aa98955e6555fc7920ae1c51e2f4aa813a81f52aa643c1b6442a7e27",
-      "release_sha256": "ac2bb9de265f08a78d8b7554f1fb4caef2a7bbe2ccddb6662795f607d2a71af6"
+      "release_sha256": "3c17ba8ee18b6376dc6527aa074adba8266595093cd17399887baf9e20fe09ed"
+    },
+    "README_RU.md": {
+      "origin": "Russian documentation home for the published implementation",
+      "release_sha256": "2cfdc0a4433e143e63207a49c2cf439964d4577b1c4079b93096af75a25c8a9f"
     },
     "configs/annotation/event_span_math.txt": {
       "source_name": "configs/annotation/event_span_math.txt",
@@ -917,7 +921,7 @@
     },
     "docs/usage.md": {
       "origin": "release integration: interface, configuration or verification",
-      "release_sha256": "5971876c988e947b7dd43b6da352523635cf2ba4c768fbab49c89f75604334f3"
+      "release_sha256": "fab52ea675330cb77125d82c8f85a26474cc2f079554cbe92838c56f5e86970f"
     },
     "examples/README.md": {
       "source_name": "examples/README.md",

@@ -8,7 +8,7 @@ Commands below run from the repository root after installing the package. Paths 
 | --- | --- | --- |
 | Causal observation of events and reasoning modes | `clean_detectors.model`, `history_rollout`, `history_inference`; `prefix_api.detector_api_v1` | `configs/detector` |
 | Segment Transformer and Qwen LoRA predictors, T/E/S input ablations | `ptrain.model_a`, `model_b`, `losses`, `runner`, `predict` | `configs/predictor` |
-| Native annotation vocabularies and unknown-label masks | `ptrain.targets_native`, `namespace_policy`, `data` | `PACK_MANIFEST.json`, `namespaces.json` |
+| Native annotation vocabularies and unknown-label masks | `ptrain.targets_native`, `namespace_policy`, `data` | Namespace definitions in `PACK_MANIFEST.json` |
 | Retrospective structural observations and auxiliary corruption task | `ptrain.attach_retro_es`, `attach_group4` | `configs/observations` |
 | Explicit event memory, semi-Markov, GRU, Neural Hawkes; structural rollouts | `tes_process.models`, `event_memory`, `fit_explicit`, `rollout_process` | `configs/process/readout.json`, prepared namespace arrays |
 | Conditional/marginal readouts of the same process state | `tes_process.experiment`, `structure_diagnostics` | same frozen namespace membership and checkpoints |
